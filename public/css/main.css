@@ -1,0 +1,17 @@
+.welcome{
+    font-size: 30px;
+}
+
+#log-out{
+    color: whitesmoke;
+    margin-top:10%;
+}
+
+#fantasy-logo{
+    max-width: 200px;
+}
+
+#fantasy-logo-navbar{
+    max-width: 120px;
+    margin-left: 10%;
+}

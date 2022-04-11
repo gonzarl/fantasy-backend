@@ -17,8 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('drivers', 'App\Http\Controllers\DriverController');
+Route::resource('teams', 'App\Http\Controllers\TeamController');
+Route::resource('races', 'App\Http\Controllers\RaceController');
+Route::resource('users', 'App\Http\Controllers\UserController');
+
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+    return view('home');
+})->middleware(['auth'])->name('home');
 
 require __DIR__.'/auth.php';
