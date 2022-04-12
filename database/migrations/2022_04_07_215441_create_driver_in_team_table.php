@@ -22,8 +22,6 @@ return new class extends Migration
             $table->foreign('driver_1_id')->references('id')->on('drivers');
             $table->unsignedBigInteger('driver_2_id');
             $table->foreign('driver_2_id')->references('id')->on('drivers');
-            //$table->foreignIdFor(Driver::class)->constrained();
-            //$table->foreignIdFor(Driver::class)->constrained();
             $table->timestamps();
         });
     }

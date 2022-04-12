@@ -15,16 +15,16 @@ class DriverInTeamSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('driver_in_team')->insert([
+        DB::table('driver_in_teams')->insert([
             'team_id'=>'1',
-            'driver_id_1'=>'1',
-            'driver_id_2' => '12',
+            'driver_1_id'=>'1',
+            'driver_2_id' => '12',
         ]);
 
-        DB::table('driver_in_team')->insert([
+        DB::table('driver_in_teams')->insert([
             'team_id'=>'2',
-            'driver_id_1'=>'2',
-            'driver_id_2' => '15',
+            'driver_1_id'=>'2',
+            'driver_2_id' => '15',
         ]);
     }
 }
