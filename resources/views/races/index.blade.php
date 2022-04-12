@@ -11,6 +11,7 @@
             <th scope="col">Country</th>
             <th scope="col">Date</th>
             <th scope="col">Style</th>
+            <th scope="col">Finishes</th>
             <th scope="col">Actions</th>
         </tr>
     </thead>
@@ -23,6 +24,13 @@
                 <td>{{$race->date}}</td>
                 <td>{{$race->style}}</td>
                 <td>
+                    @if ($race->finishes->isEmpty())
+                        <a class="btn btn-info" href="/finishes/{{$race->id}}/create/">Create</a>
+                    @else
+                        <a class="btn btn-info" href="/finishes/{{$race->id}}/show/">View</a>
+                    @endif
+                </td>
+                <td>
                     <a class="btn btn-info" href="/races/{{$race->id}}/edit">Edit</a>
                     <button class="btn btn-primary">Delete</button>
                 </td>
@@ -34,5 +42,5 @@
     {!! $races->links() !!}
 </div>
 
-<a href="races/create" class="btn btn-primary">CREATE</a>
+<a href="/races/create" class="btn btn-primary">CREATE</a>
 @endsection()
