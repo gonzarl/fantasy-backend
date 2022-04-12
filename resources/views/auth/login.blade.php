@@ -51,6 +51,11 @@
                     {{ __('Log in') }}
                 </x-button>
             </div>
+
+            <!-- Register -->
+            <div class="underline block mt-4 flex justify-end">
+                <a href="{{ route ('register') }}"> Don't have an account? Register</a>
+            </div>
         </form>
     </x-auth-card>
 </x-guest-layout>

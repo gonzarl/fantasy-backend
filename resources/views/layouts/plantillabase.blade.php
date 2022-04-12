@@ -11,8 +11,9 @@
     <title>F1 Fantasy 2022</title>
     <!--Aditional Styles -->
     <link rel= "stylesheet" href= "/css/main.css">
-
-    <div class="container">
+  </head>
+  <body>
+    <div>
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" href="/dashboard"><img src="https://i.ibb.co/rHPVzm7/logo-2.png" alt="fantasy-logo" id="fantasy-logo-navbar"></a>
         <button
@@ -47,9 +48,8 @@
         </form>
       </nav>
     </div>
-  </head>
-  <body>
-    <div class="container">
+
+    <div class="container mt-3">
         @yield('contenido')
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
