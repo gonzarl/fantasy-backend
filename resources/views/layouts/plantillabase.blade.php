@@ -13,7 +13,7 @@
     <link rel= "stylesheet" href= "/css/main.css">
   </head>
   <body>
-    <div>
+    
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" href="/dashboard"><img src="https://i.ibb.co/rHPVzm7/logo-2.png" alt="fantasy-logo" id="fantasy-logo-navbar"></a>
         <button
@@ -34,20 +34,20 @@
             <li><a class="nav-link active" href="/races">Races</a></li>
             <li><a class="nav-link active" href="/users">Users</a></li>
           </ul>
-        </div>
+          <!-- Authentication -->
+          <form class="navbar-nav" method="POST" action="{{ route('logout') }}">
+            @csrf
+            <x-dropdown-link :href="route('logout')"
+              class="nav-link active"
+              onclick="event.preventDefault();
+              this.closest('form').submit();">
+              {{ __('Log Out') }}
+            </x-dropdown-link>
+          </form>
 
-        <!-- Authentication -->
-        <form method="POST" action="{{ route('logout') }}">
-          @csrf
-          <x-dropdown-link :href="route('logout')"
-            class="nav-link active" id="log-out"
-            onclick="event.preventDefault();
-            this.closest('form').submit();">
-            {{ __('Log Out') }}
-          </x-dropdown-link>
-        </form>
+        </div>
       </nav>
-    </div>
+    
 
     <div class="container mt-3">
         @yield('contenido')
