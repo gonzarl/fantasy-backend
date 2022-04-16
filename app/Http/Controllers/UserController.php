@@ -14,10 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //$users = User::all();
-        //return view('users.index')->with('users', $users);
-
-        $users = User::paginate(10);
+        $users = User::orderBy('id', 'asc')->paginate(10);
         return view('users.index')->with('users', $users);
     }
 
@@ -39,7 +36,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newUser = new User();
+        $newUser->name = $request->get('name');
+        $newUser->email = $request->get('email');
+        $newUser->password = bcrypt($request->get('password'));
+        $newUser->rol = $request->get('rol');
+        $newUser->save();
+        return redirect('/users');
     }
 
     /**
@@ -74,7 +77,13 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        $user->password = bcrypt($request->get('password'));
+        $user->rol = $request->get('rol');
+        $user->save();
+        return redirect('/users');
     }
 
     /**
@@ -85,6 +94,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user.delete();
+        return view('users.index');
     }
 }

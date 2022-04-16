@@ -20,10 +20,22 @@
     </div>
     <div>
         <label for="" class="form-label">Rol</label>
-        <select class="form-select" aria-label="">
-            <option selected value="user">User</option>
-            <option value="points_manager">Points Manager</option>
-            <option value="admin">Administrator</option>
+        <select class="form-select" name="rol" aria-label="">
+            @if ($user->rol=='user')
+                <option selected value="user">User</option> 
+                <option value="points_manager">Points Manager</option>
+                <option value="admin">Administrator</option>
+            @else
+                @if ($user->rol=='points manager')
+                    <option value="user">User</option> 
+                    <option selected value="points_manager">Points Manager</option>
+                    <option value="admin">Administrator</option>
+                @else
+                    <option value="user">User</option> 
+                    <option value="points_manager">Points Manager</option>
+                    <option selected value="admin">Administrator</option>
+                @endif
+            @endif
         </select>
     </div>
 
