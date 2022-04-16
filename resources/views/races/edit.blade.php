@@ -19,10 +19,16 @@
         <input type="date" class="form-control" id="date" name="date" value="{{$race->date}}" min="2022-01-01" max="2022-12-31">
     </div>
     <div>
-        <label for="" class="form-label">Type</label>
-        <select class="form-select" aria-label="">
-            <option selected value="classic">Classic</option>
-            <option value="street">Street</option>
+        <label for="" class="form-label">Style</label>
+        <select class="form-select" name="style" aria-label="">
+            @if ($race->style==('classic'))
+                <option selected value="classic">Classic</option>
+                <option value="street">Street</option>
+            @else
+                <option value="classic">Classic</option>
+                <option selected value="street">Street</option>
+            @endif
+
         </select>
     </div>
 

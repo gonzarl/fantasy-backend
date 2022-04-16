@@ -18,7 +18,7 @@
         <input type="date" class="form-control" id="date" name="date" value="2022-04-10" value="2022-01-01" max="2022-12-31">
     </div>
     <div>
-        <label for="" class="form-label">Type</label>
+        <label for="" class="form-label">Style</label>
         <select class="form-select" aria-label="">
             <option selected value="classic">Classic</option>
             <option value="street">Street</option>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Race;
+use App\Models\Finishes;
 
 class RaceController extends Controller
 {
@@ -14,8 +15,7 @@ class RaceController extends Controller
      */
     public function index()
     {
-        //$races = Race::all();
-        $races = Race::paginate(10);
+        $races = Race::orderBy('id', 'asc')->paginate(10);
         return view('races.index')->with('races', $races);
     }
 
@@ -37,10 +37,13 @@ class RaceController extends Controller
      */
     public function store(Request $request)
     {
-        //SIGUIENTE MODULO
-        //$newRace = new Race();
-        //$newRace->city = $request->get('city');
-        //$newRace->city = $request->get('country');
+        $newRace = new Race();
+        $newRace->city = $request->get('city');
+        $newRace->country = $request->get('country');
+        $newRace->date = $request->get('date');
+        $newRace->style = $request->get('style');
+        $newRace->save();
+        return redirect('/races');
     }
 
     /**
@@ -75,7 +78,13 @@ class RaceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $newRace = Race::find($id);
+        $newRace->city = $request->get('city');
+        $newRace->country = $request->get('country');
+        $newRace->date = $request->get('date');
+        $newRace->style = $request->get('style');
+        $newRace->save();
+        return redirect('/races');
     }
 
     /**
@@ -86,6 +95,16 @@ class RaceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $race = Race::find($id);
+        $race->delete();
+        return view('races.index');
+    }
+
+    public function createFinishes($id){
+        return view('races.create');
+    }
+
+    public function viewFinishes($id){
+        return view('races.create');
     }
 }

@@ -31,8 +31,12 @@
                     @endif
                 </td>
                 <td>
-                    <a class="btn btn-info" href="/races/{{$race->id}}/edit">Edit</a>
-                    <button class="btn btn-primary">Delete</button>
+                    <form action="{{route('races.destroy', $race->id)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                        <a class="btn btn-info" href="/races/{{$race->id}}/edit">Edit</a>
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                    </form>
                 </td>
             </tr>
         @endforeach
