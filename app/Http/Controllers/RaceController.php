@@ -78,12 +78,12 @@ class RaceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $newRace = Race::find($id);
-        $newRace->city = $request->get('city');
-        $newRace->country = $request->get('country');
-        $newRace->date = $request->get('date');
-        $newRace->style = $request->get('style');
-        $newRace->save();
+        $race = Race::find($id);
+        $race->city = $request->get('city');
+        $race->country = $request->get('country');
+        $race->date = $request->get('date');
+        $race->style = $request->get('style');
+        $race->save();
         return redirect('/races');
     }
 
