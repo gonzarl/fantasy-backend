@@ -14,8 +14,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        //$teams = Team::all();
-        $teams = Team::paginate(10);
+        $teams = Team::orderBy('id','asc')->paginate(10);
         return view('teams.index')->with('teams', $teams);
     }
 
@@ -37,7 +36,13 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newTeam = new Team();
+        $newTeam->name = $request->get('name');
+        $newTeam->budget = $request->get('budget');
+        $newTeam->points = $request->get('points');
+        $newTeam->user_id = $request->get('user_id');
+        $newTeam->save();
+        return redirect('/teams');
     }
 
     /**
@@ -72,7 +77,13 @@ class TeamController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $team = Team::find($id);
+        $team->name = $request->get('name');
+        $team->budget = $request->get('budget');
+        $team->points = $request->get('points');
+        $team->user_id = $request->get('user_id');
+        $team->save();
+        return redirect('/teams');
     }
 
     /**
@@ -83,6 +94,8 @@ class TeamController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $team = Team::find($id);
+        $team->delete();
+        return redirect ('/teams');
     }
 }

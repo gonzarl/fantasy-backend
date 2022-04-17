@@ -11,11 +11,11 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Budget</label>
-        <input type="text" class="form-control" id="budget" name="budget">
+        <input type="text" class="form-control" id="budget" name="budget" value="1000000">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Points</label>
-        <input type="text" class="form-control" id="points" name="points">
+        <input type="text" class="form-control" id="points" name="points" value="0">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">User_ID</label>

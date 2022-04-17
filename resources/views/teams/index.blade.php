@@ -23,8 +23,12 @@
                 <td>{{$team->points}}</td>
                 <td>{{$team->user_id}}</td>
                 <td>
-                    <a class="btn btn-info" href="/teams/{{$team->id}}/edit">Edit</a>
-                    <button class="btn btn-primary">Delete</button>
+                    <form action="{{route('teams.destroy', $team->id)}}" method="POST">
+                    @csrf
+                    @method('DELETE')  
+                        <a class="btn btn-info" href="/teams/{{$team->id}}/edit">Edit</a>
+                        <button class="btn btn-primary">Delete</button>
+                    </form>
                 </td>
             </tr>
         @endforeach
