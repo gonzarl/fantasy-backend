@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Race;
-use App\Models\Finishes;
 
 class RaceController extends Controller
 {
@@ -15,7 +14,7 @@ class RaceController extends Controller
      */
     public function index()
     {
-        $races = Race::orderBy('id', 'asc')->paginate(10);
+        $races = Race::orderBy('date', 'asc')->paginate(10);
         return view('races.index')->with('races', $races);
     }
 
@@ -98,13 +97,5 @@ class RaceController extends Controller
         $race = Race::find($id);
         $race->delete();
         return redirect ('/races');
-    }
-
-    public function createFinishes($id){
-        return view('races.create');
-    }
-
-    public function viewFinishes($id){
-        return view('races.create');
     }
 }

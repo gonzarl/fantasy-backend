@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RaceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,7 @@ Route::resource('drivers', 'App\Http\Controllers\DriverController');
 Route::resource('teams', 'App\Http\Controllers\TeamController');
 Route::resource('races', 'App\Http\Controllers\RaceController');
 Route::resource('users', 'App\Http\Controllers\UserController');
+Route::resource('finishes', 'App\Http\Controllers\FinishesController');
 
 Route::get('/dashboard', function () {
     return view('home');
