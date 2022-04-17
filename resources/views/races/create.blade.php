@@ -19,7 +19,7 @@
     </div>
     <div>
         <label for="" class="form-label">Style</label>
-        <select class="form-select" aria-label="">
+        <select name="style" class="form-select" aria-label="">
             <option selected value="classic">Classic</option>
             <option value="street">Street</option>
         </select>

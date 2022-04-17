@@ -97,7 +97,7 @@ class RaceController extends Controller
     {
         $race = Race::find($id);
         $race->delete();
-        return view('races.index');
+        return redirect ('/races');
     }
 
     public function createFinishes($id){

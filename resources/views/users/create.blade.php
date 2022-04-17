@@ -6,10 +6,6 @@
 <form action="/users" method="POST">
     @csrf
     <div class="mb-3">
-        <label for="" class="form-label">ID</label>
-        <input type="text" class="form-control" id="id" name="id">
-    </div>
-    <div class="mb-3">
         <label for="" class="form-label">Name</label>
         <input type="text" class="form-control" id="name" name="name">
     </div>
@@ -23,8 +19,8 @@
     </div>
     <div>
         <label for="" class="form-label">Rol</label>
-        <select class="form-select" aria-label="">
-            <option selected value="">None</option>
+        <select name= "rol" class="form-select" aria-label="">
+            <option value="user">User</option>
             <option value="points_manager">Points Manager</option>
             <option value="admin">Administrator</option>
         </select>
