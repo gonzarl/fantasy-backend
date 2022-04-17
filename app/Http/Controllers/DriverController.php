@@ -14,8 +14,7 @@ class DriverController extends Controller
      */
     public function index()
     {
-        //$drivers = Driver::all();
-        $drivers = Driver::paginate(10);
+        $drivers = Driver::orderBy('points', 'desc')->paginate(10);
         return view('drivers.index')->with('drivers', $drivers);
     }
 
@@ -37,7 +36,15 @@ class DriverController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newDriver = new Driver();
+        $newDriver->name = $request->get('name');
+        $newDriver->age = $request->get('age');
+        $newDriver->nationality = $request->get('nationality');
+        $newDriver->points = $request->get('points');
+        $newDriver->scuderia = $request->get('scuderia');
+        $newDriver->value = $request->get('value');
+        $newDriver->save();
+        return redirect('/drivers');
     }
 
     /**
@@ -72,7 +79,15 @@ class DriverController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $driver = Driver::find($id);
+        $driver->name = $request->get('name');
+        $driver->age = $request->get('age');
+        $driver->nationality = $request->get('nationality');
+        $driver->points = $request->get('points');
+        $driver->scuderia = $request->get('scuderia');
+        $driver->value = $request->get('value');
+        $driver->save();
+        return redirect('/drivers');
     }
 
     /**
@@ -83,6 +98,8 @@ class DriverController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $driver = Driver::find($id);
+        $driver->delete();
+        return redirect('/drivers');
     }
 }

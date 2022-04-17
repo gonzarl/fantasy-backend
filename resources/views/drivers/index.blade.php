@@ -25,8 +25,12 @@
                 <td>{{$driver->scuderia}}</td>
                 <td>{{$driver->value}}</td>
                 <td>
-                    <a class="btn btn-info" href="/drivers/{{$driver->id}}/edit">Edit</a>
-                    <button class="btn btn-primary">Delete</button>
+                    <form action="{{route('drivers.destroy', $driver->id)}}" method="POST">
+                        @csrf
+                        @method('DELETE')  
+                        <a class="btn btn-info" href="/drivers/{{$driver->id}}/edit">Edit</a>
+                        <button class="btn btn-primary">Delete</button>
+                    </form>
                 </td>
             </tr>
         @endforeach

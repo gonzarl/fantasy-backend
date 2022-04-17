@@ -19,7 +19,7 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Points</label>
-        <input type="text" class="form-control" id="points" name="points">
+        <input type="text" class="form-control" id="points" name="points" value="0">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Scuderia</label>
