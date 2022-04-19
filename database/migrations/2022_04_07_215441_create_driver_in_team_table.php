@@ -17,7 +17,7 @@ return new class extends Migration
     {
         Schema::create('drivers_in_teams', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Team::class)->constrained();
+            $table->foreignIdFor(Team::class)->constrained()->onDelete('cascade');
             $table->unsignedBigInteger('driver_1_id');
             $table->foreign('driver_1_id')->references('id')->on('drivers')->onDelete('cascade');
             $table->unsignedBigInteger('driver_2_id');
