@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class DriverInTeamSeeder extends Seeder
+class DriversInTeamsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,13 +15,13 @@ class DriverInTeamSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('driver_in_teams')->insert([
+        DB::table('drivers_in_teams')->insert([
             'team_id'=>'1',
             'driver_1_id'=>'1',
             'driver_2_id' => '12',
         ]);
 
-        DB::table('driver_in_teams')->insert([
+        DB::table('drivers_in_teams')->insert([
             'team_id'=>'2',
             'driver_1_id'=>'2',
             'driver_2_id' => '15',

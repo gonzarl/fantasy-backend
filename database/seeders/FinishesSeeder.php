@@ -30,7 +30,7 @@ class FinishesSeeder extends Seeder
         ]);
 
         DB::table('finishes')->insert([
-            'race_id'=>'1',
+            'race_id'=>'2',
             'driver_1_id'=>'3',
             'driver_2_id'=>'1',
             'driver_3_id'=>'2',

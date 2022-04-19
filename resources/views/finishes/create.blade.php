@@ -6,7 +6,7 @@
 <form action="/finishes" method="POST">
     @csrf
     <div class="mb-3">
-        <label for="" class="form-label">Race id</label>
+        <label for="" class="form-label">Race ID</label>
         <input type="text" class="form-control" id="race_id" name="race_id">
     </div>
     <div class="mb-3">

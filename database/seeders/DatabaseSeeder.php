@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RaceSeeder::class);
         $this->call(DriverSeeder::class);
         $this->call(TeamSeeder::class);
-        $this->call(DriverInTeamSeeder::class);
+        $this->call(DriversInTeamsSeeder::class);
         $this->call(FinishesSeeder::class);
     }
 }

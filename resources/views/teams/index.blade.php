@@ -11,6 +11,7 @@
             <th scope="col">Budget</th>
             <th scope="col">Points</th>
             <th scope="col">User ID</th>
+            <th scope="col">Drivers</th>
             <th scope="col">Actions</th>
         </tr>
     </thead>
@@ -22,6 +23,13 @@
                 <td>{{$team->budget}}</td>
                 <td>{{$team->points}}</td>
                 <td>{{$team->user_id}}</td>
+                <td>
+                    @if ($team->drivers->isEmpty())
+                        <a class="btn btn-info" href="/drivers_in_teams/create/">Create</a>
+                    @else
+                        <a class="btn btn-info" href="/drivers_in_teams/{{$team->id}}/">Show</a>
+                    @endif
+                </td>
                 <td>
                     <form action="{{route('teams.destroy', $team->id)}}" method="POST">
                     @csrf

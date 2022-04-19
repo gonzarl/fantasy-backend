@@ -4,8 +4,7 @@
 <h2>SHOW FINISHES </h2>
 <div action="/finishes/{{$finish->id}}" class="card mx-auto" style="width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title">Finish result {{$finish->id}}</h5>
-        <h6 class="card-subtitle">Race ID {{$finish->race_id}}</h6>
+        <h5 class="card-title">Race ID {{$finish->race_id}}</h5>
         <ol>
             <li>{{$finish->driver_1_id}}</li>
             <li>{{$finish->driver_2_id}}</li>
