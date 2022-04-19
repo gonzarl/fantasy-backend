@@ -2,6 +2,11 @@
     font-size: 30px;
 }
 
+#small-table{
+    max-width: 80%;
+    margin: auto;
+}
+
 #fantasy-logo{
     max-width: 200px;
 }

@@ -3,31 +3,28 @@
 @section('contenido')
 <h1>DRIVERS</h1>
 
-<table class="table table-striped text-center">
+<table class="table table-striped text-center" id="small-table">
     <thead>
         <tr>
+            <th scope="col">ID</th>
             <th scope="col">Name</th>
-            <th scope="col">Age</th>
-            <th scope="col">Nationality</th>
             <th scope="col">Points</th>
-            <th scope="col">Scuderia</th>
-            <th scope="col">Value</th>
+            <th scope="col">Number</th>
             <th scope="col">Actions</th>
         </tr>
     </thead>
     <tbody class="text-center">
         @foreach ($drivers as $driver)
             <tr>
+                <td>{{$driver->id}}</td>
                 <td>{{$driver->name}}</td>
-                <td>{{$driver->age}}</td>
-                <td>{{$driver->nationality}}</td>
                 <td>{{$driver->points}}</td>
-                <td>{{$driver->scuderia}}</td>
-                <td>{{$driver->value}}</td>
+                <td>{{$driver->number}}</td>
                 <td>
                     <form action="{{route('drivers.destroy', $driver->id)}}" method="POST">
                         @csrf
-                        @method('DELETE')  
+                        @method('DELETE') 
+                        <a class="btn btn-success" href="/drivers/{{$driver->id}}">More info</a> 
                         <a class="btn btn-info" href="/drivers/{{$driver->id}}/edit">Edit</a>
                         <button class="btn btn-primary">Delete</button>
                     </form>

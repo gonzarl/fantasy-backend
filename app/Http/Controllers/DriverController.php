@@ -42,7 +42,9 @@ class DriverController extends Controller
         $newDriver->nationality = $request->get('nationality');
         $newDriver->points = $request->get('points');
         $newDriver->scuderia = $request->get('scuderia');
+        $newDriver->number = $reques->get('number');
         $newDriver->value = $request->get('value');
+        $newDriver->image = $request->get('image');
         $newDriver->save();
         return redirect('/drivers');
     }
@@ -55,7 +57,8 @@ class DriverController extends Controller
      */
     public function show($id)
     {
-        //
+        $driver = Driver::find($id);
+        return view('drivers.show')->with('driver', $driver);
     }
 
     /**
@@ -85,7 +88,9 @@ class DriverController extends Controller
         $driver->nationality = $request->get('nationality');
         $driver->points = $request->get('points');
         $driver->scuderia = $request->get('scuderia');
+        $driver->number = $request->get('number');
         $driver->value = $request->get('value');
+        $driver->image = $request->get('image');
         $driver->save();
         return redirect('/drivers');
     }

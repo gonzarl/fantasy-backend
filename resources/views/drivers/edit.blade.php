@@ -27,8 +27,16 @@
         <input type="text" class="form-control" id="scuderia" name="scuderia" value="{{$driver->scuderia}}">
     </div>
     <div class="mb-3">
+        <label for="" class="form-label">Number</label>
+        <input type="text" class="form-control" id="number" name="number" value="{{$driver->number}}">
+    </div>
+    <div class="mb-3">
         <label for="" class="form-label">Value</label>
         <input type="text" class="form-control" id="value" name="value" value="{{$driver->value}}">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Profile image link</label>
+        <input type="text" class="form-control" id="image" name="image" value="{{$driver->image}}">
     </div>
 
     <div>

@@ -20,7 +20,9 @@ return new class extends Migration
             $table->string('nationality');
             $table->smallInteger('points');
             $table->string('scuderia');
+            $table->string('number');
             $table->integer('value');
+            $table->string('image');
             $table->timestamps();
         });
     }
