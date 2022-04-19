@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FinishesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,8 @@ Route::resource('races', 'App\Http\Controllers\RaceController');
 Route::resource('users', 'App\Http\Controllers\UserController');
 Route::resource('finishes', 'App\Http\Controllers\FinishesController');
 Route::resource('drivers_in_teams', 'App\Http\Controllers\DriversInTeamsController');
+
+Route::match(['get', 'post'], '/finishes/{id}/create_result', [FinishesController::class,'createResult']);
 
 Route::get('/dashboard', function () {
     return view('home');

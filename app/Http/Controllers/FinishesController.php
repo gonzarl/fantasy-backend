@@ -24,7 +24,7 @@ class FinishesController extends Controller
      */
     public function create()
     {
-        return view('finishes.create');
+       //return view('finishes.create');
     }
 
     /**
@@ -111,5 +111,9 @@ class FinishesController extends Controller
         $finish = Finishes::find($id);
         $finish->delete();
         return redirect('/races');
+    }
+
+    public function createResult($id){
+        return view('finishes.create')->with('id', $id);
     }
 }

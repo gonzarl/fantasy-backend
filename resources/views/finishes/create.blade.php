@@ -7,7 +7,7 @@
     @csrf
     <div class="mb-3">
         <label for="" class="form-label">Race ID</label>
-        <input type="text" class="form-control" id="race_id" name="race_id">
+        <input type="text" class="form-control" id="race_id" name="race_id" value="{{$id}}" readonly>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">First driver id</label>
