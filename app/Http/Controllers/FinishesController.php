@@ -24,7 +24,7 @@ class FinishesController extends Controller
      */
     public function create()
     {
-       //return view('finishes.create');
+       //
     }
 
     /**
@@ -113,7 +113,8 @@ class FinishesController extends Controller
         return redirect('/races');
     }
 
-    public function createResult($id){
+    public function createResult($id)
+    {
         return view('finishes.create')->with('id', $id);
     }
 }

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FinishesController;
+use App\Http\Controllers\DriversInTeamsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ Route::resource('finishes', 'App\Http\Controllers\FinishesController');
 Route::resource('drivers_in_teams', 'App\Http\Controllers\DriversInTeamsController');
 
 Route::match(['get', 'post'], '/finishes/{id}/create_result', [FinishesController::class,'createResult']);
+Route::match(['get', 'post'], '/drivers_in_teams/{id}/create_lineup', [DriversInTeamsController::class,'createLinup']);
 
 Route::get('/dashboard', function () {
     return view('home');

@@ -15,7 +15,7 @@
         @method('DELETE')
             <a class="btn btn-info" href="/drivers_in_teams/{{$driversit->id}}/edit">Edit</a>
             <button type="submit" class="btn btn-primary">Delete</button>
-            <a class="btn btn-secondary" href="/teams">Cancel</a>
+            <a class="btn btn-secondary" href="/teams">Go back</a>
         </form>
     </div>
 </div>

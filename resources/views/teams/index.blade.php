@@ -25,7 +25,7 @@
                 <td>{{$team->user_id}}</td>
                 <td>
                     @if ($team->drivers->isEmpty())
-                        <a class="btn btn-info" href="/drivers_in_teams/create/">Create</a>
+                        <a class="btn btn-info" href="/drivers_in_teams/{{$team->id}}/create_lineup">Create</a>
                     @else
                         <a class="btn btn-info" href="/drivers_in_teams/{{$team->id}}/">Show</a>
                     @endif

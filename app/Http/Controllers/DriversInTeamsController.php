@@ -24,7 +24,7 @@ class DriversInTeamsController extends Controller
      */
     public function create()
     {
-        return view('driversit.create');
+        //
     }
 
     /**
@@ -36,7 +36,7 @@ class DriversInTeamsController extends Controller
     public function store(Request $request)
     {
         $newDriversIT = new DriversInTeams();
-        $newDriversIT->race_id = $request->get('team_id');
+        $newDriversIT->team_id = $request->get('team_id');
         $newDriversIT->driver_1_id = $request->get('driver_1_id');
         $newDriversIT->driver_2_id = $request->get('driver_2_id');
         $newDriversIT->save();
@@ -95,5 +95,10 @@ class DriversInTeamsController extends Controller
         $driversIT = DriversInTeams::find($id);
         $driversIT->delete();
         return redirect('/teams');
+    }
+
+    public function createLinup($id)
+    {
+        return view('driversit.create')->with('id', $id);
     }
 }

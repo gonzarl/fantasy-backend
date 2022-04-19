@@ -22,7 +22,7 @@
         @method('DELETE')
             <a class="btn btn-info" href="/finishes/{{$finish->id}}/edit">Edit</a>
             <button type="submit" class="btn btn-primary">Delete</button>
-            <a class="btn btn-secondary" href="/races">Cancel</a>
+            <a class="btn btn-secondary" href="/races">Go back</a>
         </form>
     </div>
 </div>
