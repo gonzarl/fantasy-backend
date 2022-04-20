@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use App\Models\DriversInTeams;
+use App\Models\Driver;
 
 class DriversInTeamsController extends Controller
 {
@@ -52,7 +54,9 @@ class DriversInTeamsController extends Controller
     public function show($id)
     {
         $driversIT = DriversInTeams::find($id);
-        return view('driversit.show')->with('driversit',$driversIT);
+        $driversArray = ['name1' => Driver::find($driversIT->driver_1_id)->name];
+        $driversArray = Arr::add($driversArray, 'name2', Driver::find($driversIT->driver_2_id)->name); 
+        return view('driversit.show')->with('driversit',$driversIT)->with('names', $driversArray);
     }
 
     /**

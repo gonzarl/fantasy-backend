@@ -25,9 +25,9 @@
                 <td>{{$race->style}}</td>
                 <td>
                     @if ($race->finishes->isEmpty())
-                        <a class="btn btn-info" href="/finishes/{{$race->id}}/create_result">Create</a>
+                        <a class="btn btn-info" href="/finishes/{{$race->id}}/create_result">Create result</a>
                     @else
-                        <a class="btn btn-info" href="/finishes/{{$race->id}}/">Show</a>
+                        <a class="btn btn-info" href="/finishes/{{$race->id}}/">Show result</a>
                     @endif
                 </td>
                 <td>

@@ -7,8 +7,8 @@
         <h5 class="card-title">Drivers in team {{$driversit->id}}</h5>
         <h6 class="card-subtitle">Team ID {{$driversit->team_id}}</h6>
         <ul>
-            <li>First driver: {{$driversit->driver_1_id}}</li>
-            <li>Second driver: {{$driversit->driver_2_id}}</li>
+            <li>First driver: {{$names["name1"]}}</li>
+            <li>Second driver: {{$names["name2"]}}</li>
         </ul>
         <form action="{{route('drivers_in_teams.destroy', $driversit->id)}}" method="POST">
         @csrf

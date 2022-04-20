@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use App\Models\Finishes;
+use App\Models\Driver;
 
 class FinishesController extends Controller
 {
@@ -60,7 +62,17 @@ class FinishesController extends Controller
     public function show($id)
     {
         $finish = Finishes::find($id);
-        return view('finishes.show')->with('finish',$finish);
+        $driversArray = ['name1' => Driver::find($finish->driver_1_id)->name];
+        $driversArray = Arr::add($driversArray, 'name2', Driver::find($finish->driver_2_id)->name);
+        $driversArray = Arr::add($driversArray, 'name3', Driver::find($finish->driver_3_id)->name);
+        $driversArray = Arr::add($driversArray, 'name4', Driver::find($finish->driver_4_id)->name);
+        $driversArray = Arr::add($driversArray, 'name5', Driver::find($finish->driver_5_id)->name);
+        $driversArray = Arr::add($driversArray, 'name6', Driver::find($finish->driver_6_id)->name);
+        $driversArray = Arr::add($driversArray, 'name7', Driver::find($finish->driver_7_id)->name);
+        $driversArray = Arr::add($driversArray, 'name8', Driver::find($finish->driver_8_id)->name);
+        $driversArray = Arr::add($driversArray, 'name9', Driver::find($finish->driver_9_id)->name);
+        $driversArray = Arr::add($driversArray, 'name10', Driver::find($finish->driver_10_id)->name);
+        return view('finishes.show')->with('finish', $finish)->with('names',$driversArray);
     }
 
     /**
