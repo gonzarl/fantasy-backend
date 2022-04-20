@@ -15,7 +15,7 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Points</label>
-        <input type="text" class="form-control" id="points" name="points" value="0">
+        <input type="text" class="form-control" id="points" name="points" value="0" readonly>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">User_ID</label>
