@@ -1,7 +1,7 @@
 @extends('layouts.plantillabase')
 
 @section('contenido')
-<h2>EDIT DRIVER</h2>
+<h2>Edit driver</h2>
 
 <form action="/drivers/{{$driver->id}}" method="POST">
     @csrf
@@ -40,8 +40,8 @@
     </div>
 
     <div>
-        <a href="/drivers" class="btn btn-outline-secondary">CANCEL</a>
-        <button type="submit" class="btn btn-outline-primary">SAVE</button>
+        <a href="/drivers" class="btn btn-outline-secondary">Cancel</a>
+        <button type="submit" class="btn btn-outline-primary">Save</button>
     </div>
 </form>
 @endsection

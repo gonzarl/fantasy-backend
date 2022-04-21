@@ -1,7 +1,7 @@
 @extends('layouts.plantillabase')
 
 @section('contenido')
-<h2>SHOW FINISHES </h2>
+<h2>Show grid finish result</h2>
 <div action="/finishes/{{$finish->id}}" class="card mx-auto" style="width: 18rem;">
     <div class="card-body">
         <h4 class="card-title">Finish grid for:</h5>

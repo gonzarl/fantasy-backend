@@ -1,7 +1,7 @@
 @extends('layouts.plantillabase')
 
 @section('contenido')
-<h2>SHOW DRIVERS IN TEAMS </h2>
+<h2>Show drivers from team</h2>
 <div action="/drivers_in_teams/{{$driversit->id}}" class="card mx-auto" style="width: 18rem;">
     <div class="card-body">
         <h3 class="card-title text-center">{{$team->name}}</h5>

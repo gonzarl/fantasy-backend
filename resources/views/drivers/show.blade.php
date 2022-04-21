@@ -1,7 +1,7 @@
 @extends('layouts.plantillabase')
 
 @section('contenido')
-<h2>SHOW DRIVER</h2>
+<h2>Show driver info</h2>
 <div action="/drivers/{{$driver->id}}" class="card mx-auto" style="width: 18rem;">
     <img src="{{$driver->image}}" class="card-img-top" alt="{{$driver->name}} profile">
     <div class="card-body">

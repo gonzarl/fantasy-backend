@@ -1,7 +1,7 @@
 @extends('layouts.plantillabase')
 
 @section('contenido')
-<h2> EDIT RACE </h2>
+<h2>Edit race</h2>
 
 <form action="/races/{{$race->id}}" method="POST">
     @csrf
@@ -32,7 +32,7 @@
         </select>
     </div>
 
-    <a href="/races" class="btn btn-outline-secondary">CANCEL</a>
-    <button type="submit" class="btn btn-outline-primary">SAVE</button>
+    <a href="/races" class="btn btn-outline-secondary">Cancel</a>
+    <button type="submit" class="btn btn-outline-primary">Save</button>
 </form>
 @endsection

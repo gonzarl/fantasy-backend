@@ -1,7 +1,7 @@
 @extends('layouts.plantillabase')
 
 @section('contenido')
-<h1>RACES</h1>
+<h1>Races</h1>
 <div class="d-flex justify-content-end">
     <a href="/races/create" class="btn btn-outline-primary">Create new race</a>
 </div>

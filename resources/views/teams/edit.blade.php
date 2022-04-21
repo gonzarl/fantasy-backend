@@ -1,7 +1,7 @@
 @extends('layouts.plantillabase')
 
 @section('contenido')
-<h2>EDIT TEAM </h2>
+<h2>Edit team</h2>
 
 <form action="/teams/{{$team->id}}" method="POST">
     @csrf
@@ -28,7 +28,7 @@
     </div>
 
 
-    <a href="/teams" class="btn btn-outline-secondary">CANCEL</a>
-    <button type="submit" class="btn btn-outline-primary">SAVE</button>
+    <a href="/teams" class="btn btn-outline-secondary">Cancel</a>
+    <button type="submit" class="btn btn-outline-primary">Save</button>
 </form>
 @endsection

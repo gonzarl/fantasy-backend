@@ -1,7 +1,7 @@
 @extends('layouts.plantillabase')
 
 @section('contenido')
-<h2> CREATE DRIVERS IN TEAMS</h2>
+<h2>Select drivers for team</h2>
 
 <form action="/drivers_in_teams" method="POST">
     @csrf
@@ -13,7 +13,7 @@
         <label for="" class="form-label">First driver</label>
         <select name="driver_1_id" class="form-control rounded-0">
             @foreach ($drivers as $driver)
-                <option value="{{$driver->id}}">{{$driver->name}}</option>
+                <option value="{{$driver->id}}">{{$driver->name}} - {{$driver->value}} USD</option>
             @endforeach
         </select>
     </div>
@@ -21,13 +21,13 @@
         <label for="" class="form-label">Second driver</label>
         <select name="driver_2_id" class="form-control rounded-0">
             @foreach ($drivers as $driver)
-                <option value="{{$driver->id}}">{{$driver->name}}</option>
+                <option value="{{$driver->id}}">{{$driver->name}} - {{$driver->value}} USD</option>
             @endforeach
         </select>
     </div>
     <div>
-        <a href="/teams" class="btn btn-outline-secondary">CANCEL</a>
-        <button type="submit" class="btn btn-outline-primary">SAVE</button>
+        <a href="/teams" class="btn btn-outline-secondary">Cancel</a>
+        <button type="submit" class="btn btn-outline-primary">Save</button>
     </div>
 </form>
 @endsection

@@ -1,7 +1,7 @@
 @extends('layouts.plantillabase')
 
 @section('contenido')
-<h2>EDIT FINISHES </h2>
+<h2>Edit grid finish result</h2>
 
 <form action="/finishes/{{$finish->id}}" method="POST">
     @csrf
@@ -91,8 +91,8 @@
         </select>
     </div>
     <div>
-        <a href="/races" class="btn btn-outline-secondary">CANCEL</a>
-        <button type="submit" class="btn btn-outline-primary">SAVE</button>
+        <a href="/races" class="btn btn-outline-secondary">Cancel</a>
+        <button type="submit" class="btn btn-outline-primary">Save</button>
     </div>
 </form>
 @endsection

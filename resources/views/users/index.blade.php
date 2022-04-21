@@ -1,7 +1,7 @@
 @extends('layouts.plantillabase')
 
 @section('contenido')
-<h1>USERS</h1>
+<h1>Users</h1>
 <div class="d-flex justify-content-end">
     <a href="users/create" class="btn btn-outline-primary">Create new user</a>
 </div>

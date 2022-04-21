@@ -1,7 +1,7 @@
 @extends('layouts.plantillabase')
 
 @section('contenido')
-<h2>CREATE TEAM </h2>
+<h2>Create team</h2>
 
 <form action="/teams" method="POST">
     @csrf
@@ -25,7 +25,7 @@
             @endforeach
         </select>
     </div>
-    <a href="/teams" class="btn btn-outline-secondary">CANCEL</a>
-    <button type="submit" class="btn btn-outline-primary">SAVE</button>
+    <a href="/teams" class="btn btn-outline-secondary">Cancel</a>
+    <button type="submit" class="btn btn-outline-primary">Save</button>
 </form>
 @endsection

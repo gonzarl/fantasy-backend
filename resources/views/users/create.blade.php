@@ -1,7 +1,7 @@
 @extends('layouts.plantillabase')
 
 @section('contenido')
-<h2>CREATE USER</h2>
+<h2>Create user</h2>
 
 <form action="/users" method="POST">
     @csrf
@@ -27,8 +27,8 @@
     </div>
 
     <div>
-        <a href="/users" class="btn btn-outline-secondary">CANCEL</a>
-        <button type="submit" class="btn btn-outline-primary">SAVE</button>
+        <a href="/users" class="btn btn-outline-secondary">Cancel</a>
+        <button type="submit" class="btn btn-outline-primary">Save</button>
     </div>
 </form>
 @endsection
