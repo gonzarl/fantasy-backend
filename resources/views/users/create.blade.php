@@ -27,8 +27,8 @@
     </div>
 
     <div>
-        <a href="/users" class="btn btn-secondary">CANCEL</a>
-        <button type="submit" class="btn btn-primary">SAVE</button>
+        <a href="/users" class="btn btn-outline-secondary">CANCEL</a>
+        <button type="submit" class="btn btn-outline-primary">SAVE</button>
     </div>
 </form>
 @endsection

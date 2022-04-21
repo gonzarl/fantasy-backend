@@ -32,7 +32,7 @@
         </select>
     </div>
 
-    <a href="/races" class="btn btn-secondary">CANCEL</a>
-    <button type="submit" class="btn btn-primary">SAVE</button>
+    <a href="/races" class="btn btn-outline-secondary">CANCEL</a>
+    <button type="submit" class="btn btn-outline-primary">SAVE</button>
 </form>
 @endsection

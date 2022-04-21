@@ -2,7 +2,9 @@
 
 @section('contenido')
 <h1>DRIVERS</h1>
-
+<div class="d-flex justify-content-end">
+    <a href="drivers/create" class="btn btn-outline-primary">Create new driver</a>
+</div>
 <table class="table table-striped text-center" id="small-table">
     <thead>
         <tr>
@@ -22,9 +24,9 @@
                     <form action="{{route('drivers.destroy', $driver->id)}}" method="POST">
                         @csrf
                         @method('DELETE') 
-                        <a class="btn btn-success" href="/drivers/{{$driver->id}}">More info</a> 
-                        <a class="btn btn-info" href="/drivers/{{$driver->id}}/edit">Edit</a>
-                        <button class="btn btn-primary">Delete</button>
+                        <a class="btn btn-outline-success" href="/drivers/{{$driver->id}}">More info</a> 
+                        <a class="btn btn-outline-info" href="/drivers/{{$driver->id}}/edit">Edit</a>
+                        <button class="btn btn-outline-primary">Delete</button>
                     </form>
                 </td>
             </tr>
@@ -34,6 +36,4 @@
 <div class="d-flex justify-content-end">
     {!! $drivers->links() !!}
 </div>
-
-<a href="drivers/create" class="btn btn-primary">CREATE</a>
 @endsection()

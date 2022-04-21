@@ -7,7 +7,7 @@
     @csrf
     @method('PUT')
     <div class="mb-3">
-        <label for="" class="form-label">Race ID</label>
+        <label for="" class="form-label">Race</label>
         <input type="text" class="form-control" id="race_id" name="race_id" value="{{$finish->race_id}}">
     </div>
     <div class="mb-3">
@@ -51,8 +51,8 @@
         <input type="text" class="form-control" id="driver_10_id" name="driver_10_id" value="{{$finish->driver_10_id}}"> 
     </div>
     <div>
-        <a href="/races" class="btn btn-secondary">CANCEL</a>
-        <button type="submit" class="btn btn-primary">SAVE</button>
+        <a href="/races" class="btn btn-outline-secondary">CANCEL</a>
+        <button type="submit" class="btn btn-outline-primary">SAVE</button>
     </div>
 </form>
 @endsection

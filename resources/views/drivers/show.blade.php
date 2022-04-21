@@ -15,8 +15,8 @@
             <li>Number: {{$driver->number}}</li>
             <li>Value: {{$driver->value}}</li>
         </ul>
-        <a class="btn btn-info" href="/drivers/{{$driver->id}}/edit">Edit</a>
-        <a class="btn btn-secondary" href="/drivers">Go back</a>
+        <a class="btn btn-outline-info" href="/drivers/{{$driver->id}}/edit">Edit</a>
+        <a class="btn btn-outline-secondary" href="/drivers">Go back</a>
     </div>
 </div>
 

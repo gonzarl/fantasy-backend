@@ -2,6 +2,9 @@
 
 @section('contenido')
 <h1>USERS</h1>
+<div class="d-flex justify-content-end">
+    <a href="users/create" class="btn btn-outline-primary">Create new user</a>
+</div>
 
 <table class="table table-striped text-center" id="small-table">
     <thead>
@@ -22,8 +25,8 @@
                     <form action="{{route('users.destroy', $user->id)}}" method="POST">
                     @csrf
                     @method('DELETE')    
-                        <a class="btn btn-info" href="/users/{{$user->id}}/edit">Edit</a>
-                        <button type="submit" class="btn btn-primary">Delete</button>
+                        <a class="btn btn-outline-info" href="/users/{{$user->id}}/edit">Edit</a>
+                        <button type="submit" class="btn btn-outline-primary">Delete</button>
                     </form>
                 </td>
             </tr>
@@ -33,6 +36,4 @@
 <div class="d-flex justify-content-end">
     {!! $users->links() !!}
 </div>
-
-<a href="users/create" class="btn btn-primary">CREATE</a>
 @endsection()

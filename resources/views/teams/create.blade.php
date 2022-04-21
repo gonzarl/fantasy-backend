@@ -23,7 +23,7 @@
     </div>
 
 
-    <a href="/teams" class="btn btn-secondary">CANCEL</a>
-    <button type="submit" class="btn btn-primary">SAVE</button>
+    <a href="/teams" class="btn btn-outline-secondary">CANCEL</a>
+    <button type="submit" class="btn btn-outline-primary">SAVE</button>
 </form>
 @endsection
