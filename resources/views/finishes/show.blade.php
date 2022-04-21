@@ -1,11 +1,10 @@
 @extends('layouts.plantillabase')
 
 @section('contenido')
-<h2>Show grid finish result</h2>
+<h2>Grid finish result</h2>
 <div action="/finishes/{{$finish->id}}" class="card mx-auto" style="width: 18rem;">
     <div class="card-body">
-        <h4 class="card-title">Finish grid for:</h5>
-        <h5 class="card-subtilte">{{$race->city}}</h6>
+        <h4 class="card-title">{{$race->city}}</h6>
         <ol>
             @foreach ($names as $name)
                 <li>{{$name}}</li>
