@@ -3,14 +3,13 @@
 @section('contenido')
 <h1>TEAMS</h1>
 
-<table class="table table-striped text-center">
+<table class="table table-striped text-center" id="small-table">
     <thead>
         <tr>
-            <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Budget</th>
             <th scope="col">Points</th>
-            <th scope="col">User ID</th>
+            <th scope="col">User</th>
             <th scope="col">Drivers</th>
             <th scope="col">Actions</th>
         </tr>
@@ -18,7 +17,6 @@
     <tbody class="text-center">
         @foreach ($teams as $team)
             <tr>
-                <td>{{$team->id}}</td>
                 <td>{{$team->name}}</td>
                 <td>{{$team->budget}}</td>
                 <td>{{$team->points}}</td>

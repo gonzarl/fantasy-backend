@@ -6,7 +6,6 @@
 <table class="table table-striped text-center" id="small-table">
     <thead>
         <tr>
-            <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Points</th>
             <th scope="col">Number</th>
@@ -16,7 +15,6 @@
     <tbody class="text-center">
         @foreach ($drivers as $driver)
             <tr>
-                <td>{{$driver->id}}</td>
                 <td>{{$driver->name}}</td>
                 <td>{{$driver->points}}</td>
                 <td>{{$driver->number}}</td>

@@ -8,7 +8,6 @@
         <h5 class="card-title">{{$driver->name}}</h5>
         <h6 class="card-subtitle">Full description</h6>
         <ul>
-            <li>ID: {{$driver->driver_id}}</li>
             <li>Age: {{$driver->age}}</li>
             <li>Nationality: {{$driver->nationality}}</li>
             <li>Points: {{$driver->points}}</li>

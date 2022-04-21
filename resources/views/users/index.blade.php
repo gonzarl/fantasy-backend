@@ -3,13 +3,11 @@
 @section('contenido')
 <h1>USERS</h1>
 
-<table class="table table-striped text-center">
+<table class="table table-striped text-center" id="small-table">
     <thead>
         <tr>
-            <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">E-mail</th>
-            <th scope="col">Password</th>
             <th scope="col">Rol</th>
             <th scope="col">Actions</th>
         </tr>
@@ -17,10 +15,8 @@
     <tbody class="text-center">
         @foreach ($users as $user)
             <tr>
-                <td>{{$user->id}}</td>
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
-                <td>{{$user->password}}</td>
                 <td>{{$user->rol}}</td>
                 <td>
                     <form action="{{route('users.destroy', $user->id)}}" method="POST">

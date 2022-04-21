@@ -6,7 +6,6 @@
 <table class="table table-striped text-center">
     <thead>
         <tr>
-            <th scope="col">ID</th>
             <th scope="col">City</th>
             <th scope="col">Country</th>
             <th scope="col">Date</th>
@@ -18,7 +17,6 @@
     <tbody class="text-center">
         @foreach ($races as $race)
             <tr>
-                <td>{{$race->id}}</td>
                 <td>{{$race->city}}</td>
                 <td>{{$race->country}}</td>
                 <td>{{$race->date}}</td>
