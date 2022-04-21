@@ -34,7 +34,6 @@ class RaceSeeder extends Seeder
             'country'=>'Australia',
             'date' => '2022-04-10',
             'style'=>'classic',
-            //'grid_result_id'=>'0',
         ]);
 
         DB::table('races')->insert([

@@ -15,18 +15,16 @@ class TeamSeeder extends Seeder
      */
     public function run()
     {
-        //budget se calculan solos
-        //points se tendria que actualizar solo en base al resultado de los pilotos
         DB::table('teams')->insert([
             'name'=>'The Best Team',
-            'budget'=>'100',
+            'budget'=>'100000',
             'points' => '0',
             'user_id'=>'1'
         ]);
 
         DB::table('teams')->insert([
             'name'=>'The Fastest Team',
-            'budget'=>'200',
+            'budget'=>'0',
             'points' => '0',
             'user_id'=>'2'
         ]);
