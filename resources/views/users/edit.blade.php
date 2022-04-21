@@ -14,10 +14,6 @@
         <label for="" class="form-label">Email</label>
         <input type="text" class="form-control" id="email" name="email" value="{{$user->email}}">
     </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Password</label>
-        <input type="text" class="form-control" id="password" name="password" value="{{$user->password}}">
-    </div>
     <div>
         <label for="" class="form-label">Rol</label>
         <select class="form-select" name="rol" aria-label="">

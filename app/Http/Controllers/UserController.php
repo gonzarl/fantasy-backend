@@ -80,7 +80,6 @@ class UserController extends Controller
         $user = User::find($id);
         $user->name = $request->get('name');
         $user->email = $request->get('email');
-        $user->password = bcrypt($request->get('password'));
         $user->rol = $request->get('rol');
         $user->save();
         return redirect('/users');

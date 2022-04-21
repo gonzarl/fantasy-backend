@@ -8,6 +8,7 @@ use App\Models\Finishes;
 use App\Models\Driver;
 use App\Models\Team;
 use App\Models\DriversInTeams;
+use App\Models\Race;
 
 class FinishesController extends Controller
 {
@@ -70,17 +71,12 @@ class FinishesController extends Controller
     public function show($id)
     {
         $finish = Finishes::find($id);
-        $driversArray = ['name1' => Driver::find($finish->driver_1_id)->name];
-        $driversArray = Arr::add($driversArray, 'name2', Driver::find($finish->driver_2_id)->name);
-        $driversArray = Arr::add($driversArray, 'name3', Driver::find($finish->driver_3_id)->name);
-        $driversArray = Arr::add($driversArray, 'name4', Driver::find($finish->driver_4_id)->name);
-        $driversArray = Arr::add($driversArray, 'name5', Driver::find($finish->driver_5_id)->name);
-        $driversArray = Arr::add($driversArray, 'name6', Driver::find($finish->driver_6_id)->name);
-        $driversArray = Arr::add($driversArray, 'name7', Driver::find($finish->driver_7_id)->name);
-        $driversArray = Arr::add($driversArray, 'name8', Driver::find($finish->driver_8_id)->name);
-        $driversArray = Arr::add($driversArray, 'name9', Driver::find($finish->driver_9_id)->name);
-        $driversArray = Arr::add($driversArray, 'name10', Driver::find($finish->driver_10_id)->name);
-        return view('finishes.show')->with('finish', $finish)->with('names',$driversArray);
+        $driversArray = [];
+        for ($i=1; $i < 11; $i++) { 
+            $driversArray = Arr::add($driversArray, $finish.$i, Driver::find($finish->driver_.$i)->name);
+        }
+        $race = Race::find($finish->race_id);
+        return view('finishes.show')->with('finish', $finish)->with('names',$driversArray)->with('race',$race);
     }
 
     /**
@@ -121,11 +117,13 @@ class FinishesController extends Controller
         $finishes->driver_8_id = $request->get('driver_8_id');
         $finishes->driver_9_id = $request->get('driver_9_id');
         $finishes->driver_10_id = $request->get('driver_10_id');
+        $finishes->save();
+        //esta agregando a los que saco arriba, deberia de agregar despues de actualizar
+        //los campos de la tabla
         for ($i = 1; $i <= 10; $i++) {
             $this->addTeamPoints($finishes->driver_.$i, $amount[$i-1]);
             $this->addDriverPoints($finishes->driver_.$i, $amount[$i-1]);
         }
-        $finishes->save();
         return redirect('/races');
     }
 

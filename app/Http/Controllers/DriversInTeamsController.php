@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use App\Models\DriversInTeams;
 use App\Models\Driver;
+use App\Models\Team;
 
 class DriversInTeamsController extends Controller
 {
@@ -55,8 +56,9 @@ class DriversInTeamsController extends Controller
     {
         $driversIT = DriversInTeams::find($id);
         $driversArray = ['name1' => Driver::find($driversIT->driver_1_id)->name];
-        $driversArray = Arr::add($driversArray, 'name2', Driver::find($driversIT->driver_2_id)->name); 
-        return view('driversit.show')->with('driversit',$driversIT)->with('names', $driversArray);
+        $driversArray = Arr::add($driversArray, 'name2', Driver::find($driversIT->driver_2_id)->name);
+        $team = Team::find($driversIT->team_id) ;
+        return view('driversit.show')->with('driversit',$driversIT)->with('driverNames', $driversArray)->with('team', $team);
     }
 
     /**
