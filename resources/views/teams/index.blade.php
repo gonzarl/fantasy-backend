@@ -20,7 +20,7 @@
                 <td>{{$team->name}}</td>
                 <td>{{$team->budget}}</td>
                 <td>{{$team->points}}</td>
-                <td>{{$team->user_id}}</td>
+                <td>{{$users[$team->user_id]->name}}</td>
                 <td>
                     @if ($team->drivers->isEmpty())
                         <a class="btn btn-info" href="/drivers_in_teams/{{$team->id}}/create_lineup">Create</a>

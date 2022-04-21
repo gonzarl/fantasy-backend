@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use App\Models\Team;
+use App\Models\User;
 
 class TeamController extends Controller
 {
@@ -15,7 +17,12 @@ class TeamController extends Controller
     public function index()
     {
         $teams = Team::orderBy('id','asc')->paginate(10);
-        return view('teams.index')->with('teams', $teams);
+        $users = [];
+        foreach ($teams as $team) {
+            $user = User::find($team->user_id);
+            $users = Arr::add($users, $team->id, $user);
+        }
+        return view('teams.index')->with('teams', $teams)->with('users',$users);
     }
 
     /**
