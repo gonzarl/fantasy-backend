@@ -11,11 +11,19 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">First driver</label>
-        <input type="text" class="form-control" id="driver_1_id" name="driver_1_id">
+        <select name="driver_1_id" class="form-control rounded-0">
+            @foreach ($drivers as $driver)
+                <option value="{{$driver->id}}">{{$driver->name}}</option>
+            @endforeach
+        </select>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Second driver</label>
-        <input type="text" class="form-control" id="driver_2_id" name="driver_2_id">
+        <select name="driver_2_id" class="form-control rounded-0">
+            @foreach ($drivers as $driver)
+                <option value="{{$driver->id}}">{{$driver->name}}</option>
+            @endforeach
+        </select>
     </div>
     <div>
         <a href="/teams" class="btn btn-outline-secondary">CANCEL</a>

@@ -88,7 +88,10 @@ class FinishesController extends Controller
     public function edit($id)
     {
         $finish = Finishes::find($id);
-        return view('finishes.edit')->with('finish', $finish);
+        $drivers = Driver::all();
+        $race = Race::find($finish->race_id);
+        return view('finishes.edit')->with('finish', $finish)->with('drivers',$drivers)
+            ->with('race',$race);
     }
 
     /**
@@ -147,7 +150,8 @@ class FinishesController extends Controller
 
     public function createResult($id)
     {
-        return view('finishes.create')->with('id', $id);
+        $drivers = Driver::all();
+        return view('finishes.create')->with('id', $id)->with('drivers',$drivers);
     }
 
     private function addTeamPoints($driver, $amount){

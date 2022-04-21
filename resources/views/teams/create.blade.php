@@ -19,10 +19,12 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">User</label>
-        <input type="text" class="form-control" id="user_id" name="user_id">
+        <select name="user_id" class="form-control rounded-0">
+            @foreach ($users as $user)
+                <option value="{{$user->id}}">{{$user->name}}</option>
+            @endforeach
+        </select>
     </div>
-
-
     <a href="/teams" class="btn btn-outline-secondary">CANCEL</a>
     <button type="submit" class="btn btn-outline-primary">SAVE</button>
 </form>

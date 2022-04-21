@@ -20,7 +20,11 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">User</label>
-        <input type="text" class="form-control" id="user_id" name="user_id" value="{{$team->user_id}}">
+        <select name="user_id" class="form-control rounded-0">
+            @foreach ($users as $user)
+                <option value="{{$user->id}}" {{($user->id == $team->user_id) ? "selected" : ""}}>{{$user->name}}</option>
+            @endforeach
+        </select>
     </div>
 
 

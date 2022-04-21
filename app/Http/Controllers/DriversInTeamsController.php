@@ -70,7 +70,8 @@ class DriversInTeamsController extends Controller
     public function edit($id)
     {
         $driversIT = DriversInTeams::find($id);
-        return view('driversit.edit')->with('driversit', $driversIT);
+        $drivers = Driver::all();
+        return view('driversit.edit')->with('driversit', $driversIT)->with('drivers',$drivers);
     }
 
     /**
@@ -105,6 +106,7 @@ class DriversInTeamsController extends Controller
 
     public function createLinup($id)
     {
-        return view('driversit.create')->with('id', $id);
+        $drivers = Driver::all();
+        return view('driversit.create')->with('id', $id)->with('drivers', $drivers);
     }
 }

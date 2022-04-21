@@ -11,43 +11,83 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">First driver</label>
-        <input type="text" class="form-control" id="driver_1_id" name="driver_1_id">
+        <select name="driver_1_id" class="form-control rounded-0">
+            @foreach ($drivers as $driver)
+                <option value="{{$driver->id}}">{{$driver->name}}</option>
+            @endforeach
+        </select>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Second driver</label>
-        <input type="text" class="form-control" id="driver_2_id" name="driver_2_id">
+        <select name="driver_2_id" class="form-control rounded-0">
+            @foreach ($drivers as $driver)
+                <option value="{{$driver->id}}">{{$driver->name}}</option>
+            @endforeach
+        </select>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Third driver</label>
-        <input type="text" class="form-control" id="driver_3_id" name="driver_3_id">
+        <select name="driver_3_id" class="form-control rounded-0">
+            @foreach ($drivers as $driver)
+                <option value="{{$driver->id}}">{{$driver->name}}</option>
+            @endforeach
+        </select>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Fourth driver</label>
-        <input type="text" class="form-control" id="driver_4_id" name="driver_4_id">
+        <select name="driver_4_id" class="form-control rounded-0">
+            @foreach ($drivers as $driver)
+                <option value="{{$driver->id}}">{{$driver->name}}</option>
+            @endforeach
+        </select>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Fifth driver</label>
-        <input type="text" class="form-control" id="driver_5_id" name="driver_5_id">
+        <select name="driver_5_id" class="form-control rounded-0">
+            @foreach ($drivers as $driver)
+                <option value="{{$driver->id}}">{{$driver->name}}</option>
+            @endforeach
+        </select>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Sixth driver</label>
-        <input type="text" class="form-control" id="driver_6_id" name="driver_6_id">
+        <select name="driver_6_id" class="form-control rounded-0">
+            @foreach ($drivers as $driver)
+                <option value="{{$driver->id}}">{{$driver->name}}</option>
+            @endforeach
+        </select>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Seventh driver</label>
-        <input type="text" class="form-control" id="driver_7_id" name="driver_7_id">
+        <select name="driver_7_id" class="form-control rounded-0">
+            @foreach ($drivers as $driver)
+                <option value="{{$driver->id}}">{{$driver->name}}</option>
+            @endforeach
+        </select>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Eight driver</label>
-        <input type="text" class="form-control" id="driver_8_id" name="driver_8_id">
+        <select name="driver_8_id" class="form-control rounded-0">
+            @foreach ($drivers as $driver)
+                <option value="{{$driver->id}}">{{$driver->name}}</option>
+            @endforeach
+        </select>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Nineth driver</label>
-        <input type="text" class="form-control" id="driver_9_id" name="driver_9_id">
+        <select name="driver_9_id" class="form-control rounded-0">
+            @foreach ($drivers as $driver)
+                <option value="{{$driver->id}}">{{$driver->name}}</option>
+            @endforeach
+        </select>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Tenth driver</label>
-        <input type="text" class="form-control" id="driver_10_id" name="driver_10_id">
+        <select name="driver_10_id" class="form-control rounded-0">
+            @foreach ($drivers as $driver)
+                <option value="{{$driver->id}}">{{$driver->name}}</option>
+            @endforeach
+        </select>
     </div>
     <div>
         <a href="/races" class="btn btn-outline-secondary">CANCEL</a>
