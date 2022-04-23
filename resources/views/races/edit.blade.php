@@ -2,7 +2,16 @@
 
 @section('contenido')
 <h2>Edit race</h2>
-
+@if ($errors->any())
+        <div class="alert alert-danger">
+            <h3>Some error ocurred:</h3>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+@endif
 <form action="/races/{{$race->id}}" method="POST">
     @csrf
     @method('PUT')
@@ -21,14 +30,8 @@
     <div>
         <label for="" class="form-label">Style</label>
         <select class="form-select" name="style" aria-label="">
-            @if ($race->style==('classic'))
-                <option selected value="classic">Classic</option>
-                <option value="street">Street</option>
-            @else
-                <option value="classic">Classic</option>
-                <option selected value="street">Street</option>
-            @endif
-
+            <option value="classic" {{($race->style==('classic')) ? "selected" : ""}}>Classic</option>
+            <option value="street" {{($race->style==('street')) ? "selected" : ""}}>Street</option>
         </select>
     </div>
 
