@@ -11,7 +11,11 @@
             <li>Points: {{$team->points}}</li>
             <li>Owner: {{$user->name}}</li>
         </ul>
-        <a class="btn btn-outline-info" href="/teams/{{$team->id}}/edit">Edit</a>
+        @if ($team->drivers->isEmpty())
+                <a class="btn btn-outline-success" href="/drivers_in_teams/{{$team->id}}/create_lineup">Create</a>
+            @else
+                <a class="btn btn-outline-success" href="/drivers_in_teams/{{$team->id}}/">Show drivers</a>
+        @endif
         <a class="btn btn-outline-secondary" href="/teams">Go back</a>
     </div>
 </div>

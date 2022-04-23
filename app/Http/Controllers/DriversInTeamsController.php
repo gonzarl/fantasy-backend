@@ -8,6 +8,8 @@ use App\Models\DriversInTeams;
 use App\Models\Driver;
 use App\Models\Team;
 
+define('MAX_BUDGET', 1000000);
+
 class DriversInTeamsController extends Controller
 {
     /**
@@ -116,7 +118,7 @@ class DriversInTeamsController extends Controller
     {
         $driversIT = DriversInTeams::find($id);
         Team::where('id', $driversIT->team_id)
-            ->update(['budget' => 1000000]);
+            ->update(['budget' => MAX_BUDGET]);
         $driversIT->delete();
         return redirect('/teams');
     }
@@ -130,7 +132,7 @@ class DriversInTeamsController extends Controller
     private function updateBudget($team_id, $driver_1_id, $driver_2_id){
         $driver_1_value = Driver::find($driver_1_id)->value;
         $driver_2_value = Driver::find($driver_2_id)->value;
-        $budget = 1000000 - $driver_1_value - $driver_2_value;
+        $budget = MAX_BUDGET - $driver_1_value - $driver_2_value;
         Team::where('id', $team_id)
             ->update(['budget' => $budget]);
     }

@@ -12,7 +12,6 @@
             <th scope="col">Name</th>
             <th scope="col">User</th>
             <th scope="col">Description</th>
-            <th scope="col">Drivers</th>
             <th scope="col">Actions</th>
         </tr>
     </thead>
@@ -22,13 +21,6 @@
                 <td>{{$team->name}}</td>
                 <td>{{$users[$team->user_id]->name}}</td>
                 <td><a class="btn btn-outline-success" href="/teams/{{$team->id}}">View</a></td>
-                <td>
-                    @if ($team->drivers->isEmpty())
-                        <a class="btn btn-outline-success" href="/drivers_in_teams/{{$team->id}}/create_lineup">Create</a>
-                    @else
-                        <a class="btn btn-outline-success" href="/drivers_in_teams/{{$team->id}}/">Show drivers</a>
-                    @endif
-                </td>
                 <td>
                     <form action="{{route('teams.destroy', $team->id)}}" method="POST">
                     @csrf
