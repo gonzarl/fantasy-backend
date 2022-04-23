@@ -6,7 +6,9 @@
         <div class="alert alert-danger">
             <h3>Some error ocurred:</h3>
             <ul>
-                <li>No driver can finish in more than one position</li>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
             </ul>
         </div>
 @endif

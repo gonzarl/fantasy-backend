@@ -169,8 +169,8 @@ class RaceSeeder extends Seeder
         ]);
 
         DB::table('races')->insert([
-            'city'=>'Yas Marina Grand Prix',
-            'country'=>'Abu Dhabi',
+            'city'=>'Abu Dhabi Grand Prix',
+            'country'=>'United Arab Emirates',
             'date' => '2022-11-20',
             'style'=>'classic'
         ]);

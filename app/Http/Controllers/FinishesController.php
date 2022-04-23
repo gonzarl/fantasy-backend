@@ -41,7 +41,6 @@ class FinishesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'team_id' => 'required',
             'driver_1_id' => 'different:driver_2_id',
             'driver_2_id' => 'different:driver_3_id',
             'driver_3_id' => 'different:driver_4_id',
