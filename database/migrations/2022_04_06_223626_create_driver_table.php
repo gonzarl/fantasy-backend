@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('age');
             $table->string('nationality');
-            $table->smallInteger('points');
+            $table->smallInteger('points')->default('0');
             $table->string('scuderia');
             $table->string('number');
             $table->integer('value');
