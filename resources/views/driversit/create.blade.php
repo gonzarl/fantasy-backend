@@ -2,7 +2,14 @@
 
 @section('contenido')
 <h2>Select drivers for team</h2>
-
+@if ($errors->any())
+        <div class="alert alert-danger">
+            <h3>Some error ocurred:</h3>
+            <ul>
+                <li>The drivers must be different</li>
+            </ul>
+        </div>
+@endif
 <form action="/drivers_in_teams" method="POST">
     @csrf
     <div class="mb-3">

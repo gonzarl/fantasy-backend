@@ -2,13 +2,20 @@
 
 @section('contenido')
 <h2>Edit drivers from team</h2>
-
+@if ($errors->any())
+        <div class="alert alert-danger">
+            <h3>Some error ocurred:</h3>
+            <ul>
+                <li>The drivers must be different</li>
+            </ul>
+        </div>
+@endif
 <form action="/drivers_in_teams/{{$driversit->id}}" method="POST">
     @csrf
     @method('PUT')
     <div class="mb-3">
         <label for="" class="form-label">Team</label>
-        <input type="text" class="form-control" id="team_id" name="team_id" value="{{$driversit->team_id}}">
+        <input type="text" class="form-control" id="team_id" name="team_id" value="{{$team->name}}" readonly>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">First driver</label>

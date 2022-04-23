@@ -38,6 +38,12 @@ class DriversInTeamsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'team_id' => 'required',
+            'driver_1_id' => 'different:driver_2_id',
+            'driver_2_id' => 'different:driver_1_id',
+        ]);
+
         $newDriversIT = new DriversInTeams();
         $newDriversIT->team_id = $request->get('team_id');
         $newDriversIT->driver_1_id = $request->get('driver_1_id');
@@ -72,8 +78,10 @@ class DriversInTeamsController extends Controller
     public function edit($id)
     {
         $driversIT = DriversInTeams::find($id);
+        $team = Team::find($driversIT->team_id);
         $drivers = Driver::all();
-        return view('driversit.edit')->with('driversit', $driversIT)->with('drivers',$drivers);
+        return view('driversit.edit')->with('driversit', $driversIT)->with('team',$team)
+            ->with('drivers',$drivers);
     }
 
     /**
@@ -85,8 +93,12 @@ class DriversInTeamsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'driver_1_id' => 'different:driver_2_id',
+            'driver_2_id' => 'different:driver_1_id',
+        ]);
+        
         $driversIT = DriversInTeams::find($id);
-        $driversIT->team_id = $request->get('team_id');
         $driversIT->driver_1_id = $request->get('driver_1_id');
         $driversIT->driver_2_id = $request->get('driver_2_id');
         $this->updateBudget($driversIT->team_id, $driversIT->driver_1_id, $driversIT->driver_2_id);
