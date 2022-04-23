@@ -42,6 +42,8 @@ class DriversInTeamsController extends Controller
         $newDriversIT->team_id = $request->get('team_id');
         $newDriversIT->driver_1_id = $request->get('driver_1_id');
         $newDriversIT->driver_2_id = $request->get('driver_2_id');
+
+        $this->updateBudget($newDriversIT->team_id, $newDriversIT->driver_1_id, $newDriversIT->driver_2_id);
         $newDriversIT->save();
         return redirect('/teams');
     }
@@ -84,10 +86,11 @@ class DriversInTeamsController extends Controller
     public function update(Request $request, $id)
     {
         $driversIT = DriversInTeams::find($id);
-        $driversIT->race_id = $request->get('team_id');
+        $driversIT->team_id = $request->get('team_id');
         $driversIT->driver_1_id = $request->get('driver_1_id');
         $driversIT->driver_2_id = $request->get('driver_2_id');
-        $newDriversIT->save();
+        $this->updateBudget($driversIT->team_id, $driversIT->driver_1_id, $driversIT->driver_2_id);
+        $driversIT->save();
         return redirect('/teams');
     }
 
@@ -100,6 +103,8 @@ class DriversInTeamsController extends Controller
     public function destroy($id)
     {
         $driversIT = DriversInTeams::find($id);
+        Team::where('id', $driversIT->team_id)
+            ->update(['budget' => 1000000]);
         $driversIT->delete();
         return redirect('/teams');
     }
@@ -108,5 +113,13 @@ class DriversInTeamsController extends Controller
     {
         $drivers = Driver::all();
         return view('driversit.create')->with('id', $id)->with('drivers', $drivers);
+    }
+
+    private function updateBudget($team_id, $driver_1_id, $driver_2_id){
+        $driver_1_value = Driver::find($driver_1_id)->value;
+        $driver_2_value = Driver::find($driver_2_id)->value;
+        $budget = 1000000 - $driver_1_value - $driver_2_value;
+        Team::where('id', $team_id)
+            ->update(['budget' => $budget]);
     }
 }
