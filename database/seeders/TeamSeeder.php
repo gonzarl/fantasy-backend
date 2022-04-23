@@ -18,14 +18,14 @@ class TeamSeeder extends Seeder
         DB::table('teams')->insert([
             'name'=>'The Best Team',
             'budget'=>'100000',
-            'points' => '0',
+            'points' => '72',
             'user_id'=>'1'
         ]);
 
         DB::table('teams')->insert([
             'name'=>'The Fastest Team',
             'budget'=>'0',
-            'points' => '0',
+            'points' => '39',
             'user_id'=>'2'
         ]);
 

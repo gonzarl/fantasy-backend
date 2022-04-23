@@ -44,9 +44,12 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'user_id' => 'required|integer',
+        ]);
         $newTeam = new Team();
         $newTeam->name = $request->get('name');
-        $newTeam->budget = $request->get('budget');
         $newTeam->points = $request->get('points');
         $newTeam->user_id = $request->get('user_id');
         $newTeam->save();
@@ -61,7 +64,9 @@ class TeamController extends Controller
      */
     public function show($id)
     {
-        //
+        $team = Team::find($id);
+        $user = User::find($team->user_id);
+        return view('teams.show')->with('team',$team)->with('user',$user);
     }
 
     /**
@@ -86,10 +91,12 @@ class TeamController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'user_id' => 'required|integer',
+        ]);
         $team = Team::find($id);
         $team->name = $request->get('name');
-        $team->budget = $request->get('budget');
-        $team->points = $request->get('points');
         $team->user_id = $request->get('user_id');
         $team->save();
         return redirect('/teams');

@@ -2,20 +2,21 @@
 
 @section('contenido')
 <h2>Create team</h2>
-
+@if ($errors->any())
+        <div class="alert alert-danger">
+            <h3>Some error ocurred:</h3>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+@endif
 <form action="/teams" method="POST">
     @csrf
     <div class="mb-3">
         <label for="" class="form-label">Name</label>
         <input type="text" class="form-control" id="name" name="name">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Budget</label>
-        <input type="text" class="form-control" id="budget" name="budget" value="1000000">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Points</label>
-        <input type="text" class="form-control" id="points" name="points" value="0" readonly>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">User</label>

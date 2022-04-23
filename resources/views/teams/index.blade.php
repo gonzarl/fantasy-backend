@@ -10,9 +10,8 @@
     <thead>
         <tr>
             <th scope="col">Name</th>
-            <th scope="col">Budget</th>
-            <th scope="col">Points</th>
             <th scope="col">User</th>
+            <th scope="col">Description</th>
             <th scope="col">Drivers</th>
             <th scope="col">Actions</th>
         </tr>
@@ -21,9 +20,8 @@
         @foreach ($teams as $team)
             <tr>
                 <td>{{$team->name}}</td>
-                <td>{{$team->budget}}</td>
-                <td>{{$team->points}}</td>
                 <td>{{$users[$team->user_id]->name}}</td>
+                <td><a class="btn btn-outline-success" href="/teams/{{$team->id}}">View</a></td>
                 <td>
                     @if ($team->drivers->isEmpty())
                         <a class="btn btn-outline-success" href="/drivers_in_teams/{{$team->id}}/create_lineup">Create</a>
