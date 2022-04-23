@@ -36,6 +36,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+            'rol' => 'required',
+        ]);
+
         $newUser = new User();
         $newUser->name = $request->get('name');
         $newUser->email = $request->get('email');
@@ -77,6 +84,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'rol' => 'required',
+        ]);
         $user = User::find($id);
         $user->name = $request->get('name');
         $user->email = $request->get('email');

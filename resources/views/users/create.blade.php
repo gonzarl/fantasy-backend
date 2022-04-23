@@ -2,7 +2,16 @@
 
 @section('contenido')
 <h2>Create user</h2>
-
+@if ($errors->any())
+        <div class="alert alert-danger">
+            <h3>Some error ocurred:</h3>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+@endif
 <form action="/users" method="POST">
     @csrf
     <div class="mb-3">
