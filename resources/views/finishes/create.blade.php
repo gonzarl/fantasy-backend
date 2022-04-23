@@ -2,7 +2,14 @@
 
 @section('contenido')
 <h2>Create grid finish result</h2>
-
+@if ($errors->any())
+        <div class="alert alert-danger">
+            <h3>Some error ocurred:</h3>
+            <ul>
+                <li>No driver can finish in more than one position</li>
+            </ul>
+        </div>
+@endif
 <form action="/finishes" method="POST">
     @csrf
     <div class="mb-3">

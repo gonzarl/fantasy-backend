@@ -40,6 +40,19 @@ class FinishesController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'team_id' => 'required',
+            'driver_1_id' => 'different:driver_2_id',
+            'driver_2_id' => 'different:driver_3_id',
+            'driver_3_id' => 'different:driver_4_id',
+            'driver_4_id' => 'different:driver_5_id',
+            'driver_5_id' => 'different:driver_6_id',
+            'driver_6_id' => 'different:driver_7_id',
+            'driver_7_id' => 'different:driver_8_id',
+            'driver_8_id' => 'different:driver_9_id',
+            'driver_9_id' => 'different:driver_10_id',
+        ]);
+
         $newFinishes = new Finishes();
         $newFinishes->race_id = $request->get('race_id');
         $newFinishes->driver_1_id = $request->get('driver_1_id');
@@ -103,13 +116,24 @@ class FinishesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'driver_1_id' => 'different:driver_2_id',
+            'driver_2_id' => 'different:driver_3_id',
+            'driver_3_id' => 'different:driver_4_id',
+            'driver_4_id' => 'different:driver_5_id',
+            'driver_5_id' => 'different:driver_6_id',
+            'driver_6_id' => 'different:driver_7_id',
+            'driver_7_id' => 'different:driver_8_id',
+            'driver_8_id' => 'different:driver_9_id',
+            'driver_9_id' => 'different:driver_10_id',
+        ]);
+
         $finishes = Finishes::find($id);
         $amount = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1];
         for ($i = 1; $i <= 10; $i++) {
             $this->removeTeamPoints($finishes->driver_.$i, $amount[$i-1]);
             $this->removeDriverPoints($finishes->driver_.$i, $amount[$i-1]);
         }
-        $finishes->race_id = $request->get('race_id');
         $finishes->driver_1_id = $request->get('driver_1_id');
         $finishes->driver_2_id = $request->get('driver_2_id');
         $finishes->driver_3_id = $request->get('driver_3_id');
