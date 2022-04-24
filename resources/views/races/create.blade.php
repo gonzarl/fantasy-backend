@@ -16,15 +16,15 @@
     @csrf
     <div class="mb-3">
         <label for="" class="form-label">City</label>
-        <input type="text" class="form-control" id="city" name="city">
+        <input type="text" class="form-control" id="city" name="city" value="{{ old('city') }}">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Country</label>
-        <input type="text" class="form-control" id="country" name="country">
+        <input type="text" class="form-control" id="country" name="country" value="{{ old('country') }}">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Date</label>
-        <input type="date" class="form-control" id="date" name="date" value="2022-04-10" value="2022-01-01" max="2022-12-31">
+        <input type="date" class="form-control" id="date" name="date" value="{{ old('date') }}" min="2022-01-01" max="2022-12-31">
     </div>
     <div>
         <label for="" class="form-label">Style</label>

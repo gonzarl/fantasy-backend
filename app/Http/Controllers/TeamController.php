@@ -50,7 +50,6 @@ class TeamController extends Controller
         ]);
         $newTeam = new Team();
         $newTeam->name = $request->get('name');
-        $newTeam->points = $request->get('points');
         $newTeam->user_id = $request->get('user_id');
         $newTeam->save();
         return redirect('/teams');

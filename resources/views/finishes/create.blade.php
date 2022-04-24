@@ -1,22 +1,20 @@
 @extends('layouts.plantillabase')
 
 @section('contenido')
-<h2>Create grid finish result</h2>
+<h2>Create grid finish result for {{$race->city}}</h2>
 @if ($errors->any())
         <div class="alert alert-danger">
             <h3>Some error ocurred:</h3>
             <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
+                <li>No driver can finish in more than one position</li>
             </ul>
         </div>
 @endif
 <form action="/finishes" method="POST">
     @csrf
     <div class="mb-3">
-        <label for="" class="form-label">Race</label>
-        <input type="text" class="form-control" id="race_id" name="race_id" value="{{$id}}" readonly>
+        <label for="" class="form-label" hidden>Race</label>
+        <input type="text" class="form-control" id="race_id" name="race_id" value="{{$race->id}}" hidden>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">First driver</label>

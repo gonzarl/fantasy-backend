@@ -17,8 +17,8 @@ return new class extends Migration
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('budget');
-            $table->smallInteger('points');
+            $table->integer('budget')->default(1000000);
+            $table->smallInteger('points')->default(0);
             $table->foreignIdFor(User::class)->constrained()->unique();
             $table->timestamps();
         });

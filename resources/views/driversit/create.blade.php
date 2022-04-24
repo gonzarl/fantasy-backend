@@ -1,7 +1,7 @@
 @extends('layouts.plantillabase')
 
 @section('contenido')
-<h2>Select drivers for team</h2>
+<h2>Select drivers for team {{$team->name}}</h2>
 @if ($errors->any())
         <div class="alert alert-danger">
             <h3>Some error ocurred:</h3>
@@ -13,8 +13,8 @@
 <form action="/drivers_in_teams" method="POST">
     @csrf
     <div class="mb-3">
-        <label for="" class="form-label">Team</label>
-        <input type="text" class="form-control" id="team_id" name="team_id" value="{{$id}}" readonly>
+        <label for="" class="form-label" hidden>Team</label>
+        <input type="text" class="form-control" id="team_id" name="team_id" value="{{$team->id}}" hidden>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">First driver</label>

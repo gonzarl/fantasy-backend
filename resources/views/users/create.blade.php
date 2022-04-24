@@ -16,15 +16,15 @@
     @csrf
     <div class="mb-3">
         <label for="" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" name="name">
+        <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Email</label>
-        <input type="text" class="form-control" id="email" name="email">
+        <input type="text" class="form-control" id="email" name="email" value="{{ old('email') }}">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Password</label>
-        <input type="text" class="form-control" id="password" name="password">
+        <input type="text" class="form-control" id="password" name="password" value="{{ old('password') }}">
     </div>
     <div>
         <label for="" class="form-label">Rol</label>

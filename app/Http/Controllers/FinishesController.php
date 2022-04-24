@@ -174,7 +174,8 @@ class FinishesController extends Controller
     public function createResult($id)
     {
         $drivers = Driver::all();
-        return view('finishes.create')->with('id', $id)->with('drivers',$drivers);
+        $race = Race::find($id);
+        return view('finishes.create')->with('race', $race)->with('drivers',$drivers);
     }
 
     private function addTeamPoints($driver, $amount){

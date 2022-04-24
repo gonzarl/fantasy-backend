@@ -126,7 +126,8 @@ class DriversInTeamsController extends Controller
     public function createLinup($id)
     {
         $drivers = Driver::all();
-        return view('driversit.create')->with('id', $id)->with('drivers', $drivers);
+        $team = Team::find($id);
+        return view('driversit.create')->with('team', $team)->with('drivers', $drivers);
     }
 
     private function updateBudget($team_id, $driver_1_id, $driver_2_id){
