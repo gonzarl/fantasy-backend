@@ -1,7 +1,7 @@
 @extends('layouts.plantillabase')
 
 @section('contenido')
-<h2>Edit drivers from team</h2>
+<h2>Edit drivers from {{$team->name}}</h2>
 @if ($errors->any())
         <div class="alert alert-danger">
             <h3>Some error ocurred:</h3>
@@ -10,32 +10,52 @@
             </ul>
         </div>
 @endif
+<div id="errorBudget" class="alert alert-dismissible alert-primary text-center" hidden>
+    <p>Error: el valor de los pilotos sobrepasa el budget de 1.000.000 USD</p>
+</div>
 <form action="/drivers_in_teams/{{$driversit->id}}" method="POST">
     @csrf
     @method('PUT')
     <div class="mb-3">
-        <label for="" class="form-label">Team</label>
-        <input type="text" class="form-control" id="team_id" name="team_id" value="{{$team->name}}" readonly>
-    </div>
-    <div class="mb-3">
         <label for="" class="form-label">First driver</label>
-        <select name="driver_1_id" class="form-control rounded-0">
+        <select id="driver1" name="driver_1_id" class="form-control rounded-0" onchange="checkBudget()">
             @foreach ($drivers as $driver)
-                <option value="{{$driver->id}}" {{($driver->id == $driversit->driver_1_id) ? "selected" : ""}}>{{$driver->name}} - {{$driver->value}} USD</option>
+                <option x-data-price="{{$driver->value}}" value="{{$driver->id}}" {{($driver->id == $driversit->driver_1_id) ? "selected" : ""}}>{{$driver->name}} - {{$driver->value}} USD</option>
             @endforeach
         </select>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Second driver</label>
-        <select name="driver_2_id" class="form-control rounded-0">
+        <select id="driver2" name="driver_2_id" class="form-control rounded-0" onchange="checkBudget()">
             @foreach ($drivers as $driver)
-                <option value="{{$driver->id}}" {{($driver->id == $driversit->driver_2_id) ? "selected" : ""}}>{{$driver->name}} - {{$driver->value}} USD</option>
+                <option x-data-price="{{$driver->value}}" value="{{$driver->id}}" {{($driver->id == $driversit->driver_2_id) ? "selected" : ""}}>{{$driver->name}} - {{$driver->value}} USD</option>
             @endforeach
         </select>
     </div>
     <div>
         <a href="/teams" class="btn btn-outline-secondary">Cancel</a>
-        <button type="submit" class="btn btn-outline-primary">Save</button>
+        <button id="saveButton" type="submit" class="btn btn-outline-primary">Save</button>
     </div>
 </form>
+
+<script>
+    function checkBudget(){
+        console.log("a");
+        let driver1 = document.getElementById("driver1");
+        let driver2 = document.getElementById("driver2");
+        let hidden_element = document.getElementById("errorBudget");
+        let save_button = document.getElementById("saveButton");
+
+        driver1_price = parseInt(driver1.options[driver1.selectedIndex].getAttribute('x-data-price'));
+        driver2_price = parseInt(driver2.options[driver2.selectedIndex].getAttribute('x-data-price'));
+
+        if (driver1_price+driver2_price>1000000){
+           hidden_element.hidden = false;
+           save_button.disabled = true;
+        }else{
+            hidden_element.hidden = true;
+            save_button.disabled = false;
+        }
+    }
+</script>
 @endsection
