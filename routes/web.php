@@ -27,6 +27,7 @@ Route::resource('finishes', 'App\Http\Controllers\FinishesController')->middlewa
 Route::resource('drivers_in_teams', 'App\Http\Controllers\DriversInTeamsController')->middleware(['auth']);
 
 Route::match(['get', 'post'], '/finishes/{id}/create_result', [FinishesController::class,'createResult'])->middleware(['auth']);
+Route::get('/finishes/{id}/show_result', [FinishesController::class,'showResult'])->middleware(['auth']);
 Route::match(['get', 'post'], '/drivers_in_teams/{id}/create_lineup', [DriversInTeamsController::class,'createLinup'])->middleware(['auth']);
 
 Route::get('/dashboard', function () {

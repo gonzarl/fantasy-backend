@@ -27,7 +27,7 @@
                     @if ($race->finishes->isEmpty())
                         <a class="btn btn-outline-success" href="/finishes/{{$race->id}}/create_result">Create result</a>
                     @else
-                        <a class="btn btn-outline-success" href="/finishes/{{$race->id}}/">Show result</a>
+                        <a class="btn btn-outline-success" href="/finishes/{{$race->id}}/show_result">Show result</a>
                     @endif
                 </td>
                 <td>

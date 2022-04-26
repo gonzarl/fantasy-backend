@@ -178,6 +178,27 @@ class FinishesController extends Controller
         return view('finishes.create')->with('race', $race)->with('drivers',$drivers);
     }
 
+    public function showResult($id)
+    {
+        $finish = Finishes::where('race_id', $id)->first();
+        $driversArray = [];
+        $driversArray = Arr::add($driversArray, "1", Driver::find($finish->driver_1_id)->name);
+        $driversArray = Arr::add($driversArray, "2", Driver::find($finish->driver_2_id)->name);
+        $driversArray = Arr::add($driversArray, "3", Driver::find($finish->driver_3_id)->name);
+        $driversArray = Arr::add($driversArray, "4", Driver::find($finish->driver_4_id)->name);
+        $driversArray = Arr::add($driversArray, "5", Driver::find($finish->driver_5_id)->name);
+        $driversArray = Arr::add($driversArray, "6", Driver::find($finish->driver_6_id)->name);
+        $driversArray = Arr::add($driversArray, "7", Driver::find($finish->driver_7_id)->name);
+        $driversArray = Arr::add($driversArray, "8", Driver::find($finish->driver_8_id)->name);
+        $driversArray = Arr::add($driversArray, "9", Driver::find($finish->driver_9_id)->name);
+        $driversArray = Arr::add($driversArray, "10", Driver::find($finish->driver_10_id)->name);
+        for ($i=1; $i < 11; $i++) { 
+            //$driversArray = Arr::add($driversArray, $finish.$i, Driver::find($finish->driver_.$i)->name);
+        }
+        $race = Race::find($id);
+        return view('finishes.show')->with('finish', $finish)->with('names',$driversArray)->with('race',$race);
+    }
+
     private function addTeamPoints($driver, $amount){
         $teams_with_first_pilot = DriversInTeams::where('driver_1_id', $driver)->select('team_id')->get();
         $teams_with_second_pilot = DriversInTeams::where('driver_2_id', $driver)->select('team_id')->get();

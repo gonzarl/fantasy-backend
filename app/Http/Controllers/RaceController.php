@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use App\Models\Race;
+use App\Models\Finishes;
 
 class RaceController extends Controller
 {
@@ -15,7 +17,13 @@ class RaceController extends Controller
     public function index()
     {
         $races = Race::orderBy('date', 'asc')->paginate(10);
-        return view('races.index')->with('races', $races);
+        //pasar un arreglo de race_id => finishes_id
+        $finishes_ids = [];
+        foreach ($races as $race){
+            $finish = Finishes::where('race_id', $race->id)->first();
+            $finishes_ids = Arr::add($finishes_ids, $race->id, $finish);
+        }
+        return view('races.index')->with('races', $races)->with('finishes_ids',$finishes_ids);
     }
 
     /**
