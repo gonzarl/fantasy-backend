@@ -12,7 +12,7 @@
             <th scope="col">Country</th>
             <th scope="col">Date</th>
             <th scope="col">Style</th>
-            <th scope="col">Finishes</th>
+            <th scope="col">Result</th>
             <th scope="col">Actions</th>
         </tr>
     </thead>
