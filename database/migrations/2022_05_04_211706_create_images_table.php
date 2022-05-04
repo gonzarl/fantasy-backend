@@ -13,16 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('drivers', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('age');
-            $table->string('nationality');
-            $table->smallInteger('points')->default('0');
-            $table->string('scuderia');
-            $table->string('number');
-            $table->integer('value');
-            $table->timestamps();
+            $table->string('path',500);
+            $table->string('service_id',500)->nullable();
+            $table->unsignedBigInteger('driver_id');
+
+            $table->foreign('driver_id')->references('id')->on('drivers')->onDelete('cascade');
         });
     }
 
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('drivers');
+        Schema::dropIfExists('images');
     }
 };
