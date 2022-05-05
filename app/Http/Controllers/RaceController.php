@@ -45,8 +45,8 @@ class RaceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'city' => 'required|alpha',
-            'country' => 'required|alpha',
+            'city' => 'required',
+            'country' => 'required',
             'date' => 'required|date',
             'style' => 'required',
         ]);
@@ -93,8 +93,8 @@ class RaceController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'city' => 'required|alpha',
-            'country' => 'required|alpha',
+            'city' => 'required',
+            'country' => 'required',
             'date' => 'required|date',
             'style' => 'required',
         ]);

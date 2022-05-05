@@ -37,10 +37,10 @@ class DriverController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|alpha',
+            'name' => 'required',
             'age' => 'required|numeric',
             'nationality' => 'required|alpha',
-            'scuderia' => 'required|alpha',
+            'scuderia' => 'required',
             'number' => 'required|numeric',
             'value' => 'required|integer',
             'image' => 'required|max:255',
@@ -92,11 +92,11 @@ class DriverController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required|alpha',
+            'name' => 'required',
             'age' => 'required|numeric',
             'nationality' => 'required|alpha',
             'points' => 'required|integer|numeric',
-            'scuderia' => 'required|alpha',
+            'scuderia' => 'required',
             'number' => 'required|numeric',
             'value' => 'required|integer',
             'image' => 'required|max:255',
