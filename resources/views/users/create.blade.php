@@ -28,7 +28,7 @@
     </div>
     <div>
         <label for="" class="form-label">Rol</label>
-        <select name= "rol" class="form-select" aria-label="">
+        <select name= "rol" class="form-select" aria-label="" value="{{ old('rol') }}">
             <option value="user">User</option>
             <option value="points_manager">Points Manager</option>
             <option value="admin">Administrator</option>

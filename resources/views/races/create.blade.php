@@ -28,7 +28,7 @@
     </div>
     <div>
         <label for="" class="form-label">Style</label>
-        <select name="style" class="form-select" aria-label="">
+        <select name="style" class="form-select" aria-label="" value="{{ old('style') }}">
             <option selected value="classic">Classic</option>
             <option value="street">Street</option>
         </select>
