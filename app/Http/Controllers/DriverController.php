@@ -38,10 +38,10 @@ class DriverController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'age' => 'required',
-            'nationality' => 'required',
+            'age' => 'required|numeric',
+            'nationality' => 'required|alpha',
             'scuderia' => 'required',
-            'number' => 'required',
+            'number' => 'required|numeric',
             'value' => 'required|integer',
             'image' => 'required|max:255',
         ]);
@@ -51,7 +51,7 @@ class DriverController extends Controller
         $newDriver->age = $request->get('age');
         $newDriver->nationality = $request->get('nationality');
         $newDriver->scuderia = $request->get('scuderia');
-        $newDriver->number = $reques->get('number');
+        $newDriver->number = $request->get('number');
         $newDriver->value = $request->get('value');
         $newDriver->image = $request->get('image');
         $newDriver->save();
@@ -93,11 +93,11 @@ class DriverController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'age' => 'required',
-            'nationality' => 'required',
-            'points' => 'required|integer',
+            'age' => 'required|numeric',
+            'nationality' => 'required|alpha',
+            'points' => 'required|integer|numeric',
             'scuderia' => 'required',
-            'number' => 'required',
+            'number' => 'required|numeric',
             'value' => 'required|integer',
             'image' => 'required|max:255',
         ]);

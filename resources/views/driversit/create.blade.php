@@ -21,7 +21,7 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">First driver</label>
-        <select id="driver1" name="driver_1_id" class="form-control rounded-0" onchange="checkBudget()">
+        <select id="driver1" name="driver_1_id" class="form-control rounded-0" value="{{ old('driver_1_id') }}" onchange="checkBudget()">
             @foreach ($drivers as $driver)
                 <option x-data-price="{{$driver->value}}" value="{{$driver->id}}">{{$driver->name}} - {{$driver->value}} USD</option>
             @endforeach
@@ -29,7 +29,7 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Second driver</label>
-        <select id="driver2" name="driver_2_id" class="form-control rounded-0" onchange="checkBudget()">
+        <select id="driver2" name="driver_2_id" class="form-control rounded-0" value="{{ old('driver_2_id') }}" onchange="checkBudget()">
             @foreach ($drivers as $driver)
                 <option x-data-price="{{$driver->value}}" value="{{$driver->id}}">{{$driver->name}} - {{$driver->value}} USD</option>
             @endforeach

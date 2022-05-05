@@ -18,7 +18,7 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">First driver</label>
-        <select name="driver_1_id" class="form-control rounded-0">
+        <select name="driver_1_id" class="form-control rounded-0" value="{{old('driver_1_id')}}">
             @foreach ($drivers as $driver)
                 <option value="{{$driver->id}}">{{$driver->name}}</option>
             @endforeach
@@ -26,7 +26,7 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Second driver</label>
-        <select name="driver_2_id" class="form-control rounded-0">
+        <select name="driver_2_id" class="form-control rounded-0" value="{{old('driver_2_id')}}">
             @foreach ($drivers as $driver)
                 <option value="{{$driver->id}}">{{$driver->name}}</option>
             @endforeach
@@ -34,7 +34,7 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Third driver</label>
-        <select name="driver_3_id" class="form-control rounded-0">
+        <select name="driver_3_id" class="form-control rounded-0" value="{{old('driver_3_id')}}">
             @foreach ($drivers as $driver)
                 <option value="{{$driver->id}}">{{$driver->name}}</option>
             @endforeach
@@ -42,7 +42,7 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Fourth driver</label>
-        <select name="driver_4_id" class="form-control rounded-0">
+        <select name="driver_4_id" class="form-control rounded-0" value="{{old('driver_4_id')}}">
             @foreach ($drivers as $driver)
                 <option value="{{$driver->id}}">{{$driver->name}}</option>
             @endforeach
@@ -50,7 +50,7 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Fifth driver</label>
-        <select name="driver_5_id" class="form-control rounded-0">
+        <select name="driver_5_id" class="form-control rounded-0" value="{{old('driver_5_id')}}">
             @foreach ($drivers as $driver)
                 <option value="{{$driver->id}}">{{$driver->name}}</option>
             @endforeach
@@ -58,7 +58,7 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Sixth driver</label>
-        <select name="driver_6_id" class="form-control rounded-0">
+        <select name="driver_6_id" class="form-control rounded-0" value="{{old('driver_6_id')}}">
             @foreach ($drivers as $driver)
                 <option value="{{$driver->id}}">{{$driver->name}}</option>
             @endforeach
@@ -66,7 +66,7 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Seventh driver</label>
-        <select name="driver_7_id" class="form-control rounded-0">
+        <select name="driver_7_id" class="form-control rounded-0" value="{{old('driver_7_id')}}">
             @foreach ($drivers as $driver)
                 <option value="{{$driver->id}}">{{$driver->name}}</option>
             @endforeach
@@ -74,7 +74,7 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Eight driver</label>
-        <select name="driver_8_id" class="form-control rounded-0">
+        <select name="driver_8_id" class="form-control rounded-0" value="{{old('driver_8_id')}}">
             @foreach ($drivers as $driver)
                 <option value="{{$driver->id}}">{{$driver->name}}</option>
             @endforeach
@@ -82,7 +82,7 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Nineth driver</label>
-        <select name="driver_9_id" class="form-control rounded-0">
+        <select name="driver_9_id" class="form-control rounded-0" value="{{old('driver_9_id')}}">
             @foreach ($drivers as $driver)
                 <option value="{{$driver->id}}">{{$driver->name}}</option>
             @endforeach
@@ -90,7 +90,7 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Tenth driver</label>
-        <select name="driver_10_id" class="form-control rounded-0">
+        <select name="driver_10_id" class="form-control rounded-0" value="{{old('driver_10_id')}}">
             @foreach ($drivers as $driver)
                 <option value="{{$driver->id}}">{{$driver->name}}</option>
             @endforeach

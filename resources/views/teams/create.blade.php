@@ -20,7 +20,7 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">User</label>
-        <select name="user_id" class="form-control rounded-0">
+        <select name="user_id" class="form-control rounded-0" value="{{ old('user_id') }}">
             @foreach ($users as $user)
                 <option value="{{$user->id}}">{{$user->name}}</option>
             @endforeach
