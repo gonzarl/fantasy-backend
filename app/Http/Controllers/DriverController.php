@@ -51,7 +51,7 @@ class DriverController extends Controller
         $newDriver->age = $request->get('age');
         $newDriver->nationality = $request->get('nationality');
         $newDriver->scuderia = $request->get('scuderia');
-        $newDriver->number = $reques->get('number');
+        $newDriver->number = $request->get('number');
         $newDriver->value = $request->get('value');
         $newDriver->image = $request->get('image');
         $newDriver->save();

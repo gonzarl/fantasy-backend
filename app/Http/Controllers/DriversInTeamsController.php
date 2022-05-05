@@ -64,10 +64,10 @@ class DriversInTeamsController extends Controller
      */
     public function show($id)
     {
-        $driversIT = DriversInTeams::find($id);
+        $driversIT = DriversInTeams::where('team_id', $id)->first();
         $driversArray = ['name1' => Driver::find($driversIT->driver_1_id)->name];
         $driversArray = Arr::add($driversArray, 'name2', Driver::find($driversIT->driver_2_id)->name);
-        $team = Team::find($driversIT->team_id) ;
+        $team = Team::find($id) ;
         return view('driversit.show')->with('driversit',$driversIT)->with('driverNames', $driversArray)->with('team', $team);
     }
 
@@ -79,8 +79,8 @@ class DriversInTeamsController extends Controller
      */
     public function edit($id)
     {
-        $driversIT = DriversInTeams::find($id);
-        $team = Team::find($driversIT->team_id);
+        $driversIT = DriversInTeams::where('team_id', $id)->first();
+        $team = Team::find($id);
         $drivers = Driver::all();
         return view('driversit.edit')->with('driversit', $driversIT)->with('team',$team)
             ->with('drivers',$drivers);
