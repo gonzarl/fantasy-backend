@@ -45,7 +45,7 @@ class TeamController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|alpha_num',
             'user_id' => 'required|integer',
         ]);
         $newTeam = new Team();
@@ -91,7 +91,7 @@ class TeamController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|alpha_num',
             'user_id' => 'required|integer',
         ]);
         $team = Team::find($id);
