@@ -50,7 +50,7 @@ class ImageController extends Controller
             $local_copy->timestamps = false;
             $local_copy->save();
         }
-        return ("");
+        return redirect("/drivers/".$driver);
     }
 
     /**
@@ -96,10 +96,11 @@ class ImageController extends Controller
     public function destroy($id)
     {
         $image = Image::find($id);
+        $driver = $image->driver_id;
 
         Cloudinary::destroy($image->service_id);
 
         $image->delete();
-        return ("");
+        return redirect("/drivers/".$driver);
     }
 }

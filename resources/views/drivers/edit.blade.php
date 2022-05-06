@@ -43,11 +43,6 @@
         <label for="" class="form-label">Value</label>
         <input type="text" class="form-control" id="value" name="value" value="{{$driver->value}}">
     </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Profile image link</label>
-        <input type="text" class="form-control" id="image" name="image" value="{{$driver->image}}">
-    </div>
-
     <div>
         <a href="/drivers" class="btn btn-outline-secondary">Cancel</a>
         <button type="submit" class="btn btn-outline-primary">Save</button>

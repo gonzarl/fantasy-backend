@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Driver;
+use App\Models\Image;
+
 
 class DriverController extends Controller
 {
@@ -67,7 +69,8 @@ class DriverController extends Controller
     public function show($id)
     {
         $driver = Driver::find($id);
-        return view('drivers.show')->with('driver', $driver);
+        $image = Image::where('driver_id',$driver->id)->first();
+        return view('drivers.show')->with('driver', $driver)->with('image',$image);
     }
 
     /**

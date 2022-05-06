@@ -30,6 +30,8 @@ Route::match(['get', 'post'], '/finishes/{id}/create_result', [FinishesControlle
 Route::get('/finishes/{id}/show_result', [FinishesController::class,'showResult'])->middleware(['auth']);
 Route::match(['get', 'post'], '/drivers_in_teams/{id}/create_lineup', [DriversInTeamsController::class,'createLinup'])->middleware(['auth']);
 
+Route::resource('image', 'App\Http\Controllers\ImageController')->middleware(['auth']);
+
 Route::get('/dashboard', function () {
     return view('home');
 })->middleware(['auth'])->name('dashboard');
