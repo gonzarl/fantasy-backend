@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Driver;
 use App\Models\Image;
-
+use Illuminate\Support\Facades\Http;
 
 class DriverController extends Controller
 {
@@ -31,7 +31,7 @@ class DriverController extends Controller
      */
     public function create()
     {
-        return view('drivers.create');
+        return view('drivers.search');
     }
 
     /**
@@ -129,5 +129,24 @@ class DriverController extends Controller
         $driver = Driver::find($id);
         $driver->delete();
         return redirect('/drivers');
+    }
+
+    public function searchInService(Request $request){
+        $response = Http::get('https://ergast.com/api/f1/drivers/'.$request->name.'.json');
+        
+        //si encontre resultados los uso, sino voy a crear vacio
+        if ($response["MRData"]["total"] != "0") {
+            $table = $response->json()["MRData"]["DriverTable"];
+            $driver = $table["Drivers"][0];
+            $driver_name = $driver["givenName"].' '.$driver["familyName"];
+            $driver_number = $driver["permanentNumber"];
+            $driver_dob = $driver["dateOfBirth"];
+            $driver_nationality = $driver["nationality"];
+            return view('drivers.createFromService')->with('driverName',$driver_name)
+                ->with('driverNumber',$driver_number)->with('driverDob',$driver_dob)
+                ->with('driverNationality',$driver_nationality);
+        } else {
+            return redirect('/drivers/create');
+        }
     }
 }
