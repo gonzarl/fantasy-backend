@@ -12,6 +12,11 @@ use App\Models\Race;
 
 class FinishesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('finishes.manage', ['except' => ['index']]);
+    }
+
     /**
      * Display a listing of the resource.
      *

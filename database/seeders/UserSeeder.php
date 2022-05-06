@@ -19,10 +19,11 @@ class UserSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
-            'name'=>'user1',
+            'name'=>'points-manager01',
             'email'=>'user1@user.com',
             'email_verified_at' => now(),
             'password'=>bcrypt('user1'),
+            'rol'=>'points-manager'
         ]);
 
         DB::table('users')->insert([
