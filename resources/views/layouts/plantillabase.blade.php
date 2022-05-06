@@ -27,12 +27,18 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="toggleMobileMenu">
+        <div class="collapse navbar-collapse justify-content-between" id="toggleMobileMenu">
           <ul class="navbar-nav text-center">
-            <li><a class="nav-link active" href="/teams">Teams</a></li>
-            <li><a class="nav-link active" href="/drivers">Drivers</a></li>
-            <li><a class="nav-link active" href="/races">Races</a></li>
-            <li><a class="nav-link active" href="/users">Users</a></li>
+            @if (Auth::user()->rol == 'points-manager')
+              <li><a class="nav-link active" href="/races">Races</a></li>
+            @else 
+              @if (Auth::user()->rol == 'admin')
+                <li><a class="nav-link active" href="/teams">Teams</a></li>
+                <li><a class="nav-link active" href="/drivers">Drivers</a></li>
+                <li><a class="nav-link active" href="/races">Races</a></li>
+                <li><a class="nav-link active" href="/users">Users</a></li>
+              @endif
+            @endif
           </ul>
           <!-- Authentication -->
           <form class="navbar-nav" method="POST" action="{{ route('logout') }}">
