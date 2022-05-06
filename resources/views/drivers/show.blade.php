@@ -22,18 +22,18 @@
             <a class="btn btn-outline-secondary" href="/drivers">Go back</a>
             @if ($image!=null)
                 <!-- Button trigger modal -->
-                <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="{{$image->id}}">Delete</button>
+                <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="{{$image->id}}">Delete image</button>
             @else
                 <div class="mt-4">
                     <form method="POST" action="/image" enctype="multipart/form-data">
                         @csrf
                         <div class="container mx-auto my-3">
                             <label for="file" class="my-2 d-flex">Upload driver picture</label>
-                            <input type="file" name="image" class="form-control" accept="image/*">
+                            <input type="file" id="inputImage" name="image" class="form-control" accept="image/*" onchange="activateButton()">
                             <input type="hidden" name="driver_id" class="form-control" value="{{ $driver->id }}">
                         </div>
                         <div class="col-sm-2 mt-2">
-                            <button type="submit" class="btn btn-outline-success">Upload</button>
+                            <button type="submit" id="uploadButton" class="btn btn-outline-success" disabled>Upload</button>
                         </div>
                     </form>
                 </div>
@@ -76,6 +76,20 @@
         var action = deleteForm.getAttribute("data-bs-action")
         deleteForm.setAttribute("action",action+id)
     })
+</script>
+
+<!-- Script para habilitar boton de subir imagen -->
+<script>
+    function activateButton(){
+        let fileInput = document.getElementById("inputImage");
+        let uploadButton = document.getElementById("uploadButton");
+
+        if (fileInput.value.length < 4){
+            uploadButton.disabled = true;
+        }else{
+            uploadButton.disabled = false;
+        }
+    }
 </script>
 
 @endsection

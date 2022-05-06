@@ -40,7 +40,6 @@
 
 <script>
     function checkBudget(){
-        console.log("a");
         let driver1 = document.getElementById("driver1");
         let driver2 = document.getElementById("driver2");
         let hidden_element = document.getElementById("errorBudget");

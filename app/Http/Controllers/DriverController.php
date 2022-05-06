@@ -45,7 +45,6 @@ class DriverController extends Controller
             'scuderia' => 'required',
             'number' => 'required|numeric',
             'value' => 'required|integer',
-            'image' => 'required|max:255',
         ]);
 
         $newDriver = new Driver();
@@ -55,7 +54,6 @@ class DriverController extends Controller
         $newDriver->scuderia = $request->get('scuderia');
         $newDriver->number = $request->get('number');
         $newDriver->value = $request->get('value');
-        $newDriver->image = $request->get('image');
         $newDriver->save();
         return redirect('/drivers');
     }
@@ -102,7 +100,6 @@ class DriverController extends Controller
             'scuderia' => 'required',
             'number' => 'required|numeric',
             'value' => 'required|integer',
-            'image' => 'required|max:255',
         ]);
 
         $driver = Driver::find($id);
@@ -113,7 +110,6 @@ class DriverController extends Controller
         $driver->scuderia = $request->get('scuderia');
         $driver->number = $request->get('number');
         $driver->value = $request->get('value');
-        $driver->image = $request->get('image');
         $driver->save();
         return redirect('/drivers');
     }
