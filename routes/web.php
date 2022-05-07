@@ -33,7 +33,9 @@ Route::match(['get', 'post'], '/drivers_in_teams/{id}/create_lineup', [DriversIn
 
 Route::resource('image', 'App\Http\Controllers\ImageController')->middleware(['auth']);
 
-Route::match(['get', 'post'], '/drivers/search', [DriverController::class,'searchInService'])->middleware(['auth']);
+Route::get('/drivers_create/search', [DriverController::class,'search'])->middleware(['auth']);
+Route::post('/drivers_create/search', [DriverController::class,'searchInService'])->middleware(['auth']);
+
 
 Route::get('/dashboard', function () {
     return view('home');

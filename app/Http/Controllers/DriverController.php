@@ -31,7 +31,7 @@ class DriverController extends Controller
      */
     public function create()
     {
-        return view('drivers.search');
+        return view('drivers.create');
     }
 
     /**
@@ -131,6 +131,10 @@ class DriverController extends Controller
         return redirect('/drivers');
     }
 
+    public function search(){
+        return view('drivers.search');
+    }
+
     public function searchInService(Request $request){
         $response = Http::get('https://ergast.com/api/f1/drivers/'.$request->name.'.json');
         
@@ -141,9 +145,17 @@ class DriverController extends Controller
             $driver_name = $driver["givenName"].' '.$driver["familyName"];
             $driver_number = $driver["permanentNumber"];
             $driver_dob = $driver["dateOfBirth"];
+
+            $driver_dob = explode("-", $driver_dob);
+
+            //get age from date or birthdate
+            $age = (date("md", date("U", mktime(0, 0, 0, $driver_dob[2], $driver_dob[1], $driver_dob[0]))) > date("md")
+              ? ((date("Y") - $driver_dob[0]) - 1)
+              : (date("Y") - $driver_dob[0]));
+
             $driver_nationality = $driver["nationality"];
             return view('drivers.createFromService')->with('driverName',$driver_name)
-                ->with('driverNumber',$driver_number)->with('driverDob',$driver_dob)
+                ->with('driverNumber',$driver_number)->with('driverAge',$age-1)
                 ->with('driverNationality',$driver_nationality);
         } else {
             return redirect('/drivers/create');

@@ -3,7 +3,7 @@
 @section('contenido')
 <h1>Drivers</h1>
 <div class="d-flex justify-content-end">
-    <a href="drivers/create" class="btn btn-outline-primary">Create new driver</a>
+    <a href="drivers_create/search" class="btn btn-outline-primary">Create new driver</a>
 </div>
 <table class="table table-striped text-center" id="small-table">
     <thead>

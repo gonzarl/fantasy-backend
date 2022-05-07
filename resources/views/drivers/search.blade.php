@@ -12,7 +12,7 @@
             </ul>
         </div>
 @endif
-<form action="/drivers/search" method="POST">
+<form action="/drivers_create/search" method="POST">
     @csrf
     <div class="mb-3">
         <label for="" class="form-label">Driver lastname</label>

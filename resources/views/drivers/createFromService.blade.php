@@ -20,7 +20,7 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Age</label>
-        <input type="text" class="form-control" id="age" name="age" value="{{ old('age') }}">
+        <input type="text" class="form-control" id="age" name="age" value="{{$driverAge}}">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Nationality</label>
