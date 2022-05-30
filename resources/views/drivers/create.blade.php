@@ -1,7 +1,7 @@
 @extends('layouts.plantillabase')
 
 @section('contenido')
-<h2>Create driver</h2>
+<h2>No data found - Create driver</h2>
 @if ($errors->any())
         <div class="alert alert-danger">
             <h3>Some error ocurred:</h3>
@@ -37,10 +37,6 @@
     <div class="mb-3">
         <label for="" class="form-label">Value</label>
         <input type="text" class="form-control" id="value" name="value" value="{{ old('value') }}">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Profile image</label>
-        <input type="text" class="form-control" id="image" name="image" value="{{ old('image') }}">
     </div>
     <div>
         <a href="/drivers" class="btn btn-outline-secondary">Cancel</a>

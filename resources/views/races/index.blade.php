@@ -2,9 +2,11 @@
 
 @section('contenido')
 <h1>Races</h1>
+@if (Auth::user()->rol == 'admin')
 <div class="d-flex justify-content-end">
     <a href="/races/create" class="btn btn-outline-primary">Create new race</a>
 </div>
+@endif
 <table class="table table-striped text-center">
     <thead>
         <tr>
@@ -13,7 +15,9 @@
             <th scope="col">Date</th>
             <th scope="col">Style</th>
             <th scope="col">Result</th>
-            <th scope="col">Actions</th>
+            @if (Auth::user()->rol == 'admin')
+                <th scope="col">Actions</th>
+            @endif
         </tr>
     </thead>
     <tbody class="text-center">
@@ -30,11 +34,13 @@
                         <a class="btn btn-outline-success" href="/finishes/{{$race->id}}/show_result">Show result</a>
                     @endif
                 </td>
-                <td>
-                    <a class="btn btn-outline-info" href="/races/{{$race->id}}/edit">Edit</a>
-                    <!-- button trigger modal -->
-                    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="{{$race->id}}">Delete</button>
-                </td>
+                @if (Auth::user()->rol == 'admin')
+                    <td>
+                        <a class="btn btn-outline-info" href="/races/{{$race->id}}/edit">Edit</a>
+                        <!-- button trigger modal -->
+                        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="{{$race->id}}">Delete</button>
+                    </td>
+                @endif
             </tr>
         @endforeach
     </tbody>

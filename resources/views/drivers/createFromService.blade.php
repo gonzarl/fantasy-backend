@@ -1,7 +1,7 @@
 @extends('layouts.plantillabase')
 
 @section('contenido')
-<h2>Edit driver</h2>
+<h2>Create driver</h2>
 @if ($errors->any())
         <div class="alert alert-danger">
             <h3>Some error ocurred:</h3>
@@ -12,36 +12,31 @@
             </ul>
         </div>
 @endif
-<form action="/drivers/{{$driver->id}}" method="POST">
+<form action="/drivers" method="POST">
     @csrf
-    @method('PUT')
     <div class="mb-3">
         <label for="" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" name="name" value="{{$driver->name}}">
+        <input type="text" class="form-control" id="name" name="name" value="{{$driverName}}">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Age</label>
-        <input type="text" class="form-control" id="age" name="age" value="{{$driver->age}}">
+        <input type="text" class="form-control" id="age" name="age" value="{{$driverAge}}">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Nationality</label>
-        <input type="text" class="form-control" id="nationality" name="nationality" value="{{$driver->nationality}}">
-    </div>
-    <div class="mb-3">
-        <label for="" class="form-label">Points</label>
-        <input type="text" class="form-control" id="points" name="points" value="{{$driver->points}}">
+        <input type="text" class="form-control" id="nationality" name="nationality" value="{{$driverNationality}}">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Scuderia</label>
-        <input type="text" class="form-control" id="scuderia" name="scuderia" value="{{$driver->scuderia}}">
+        <input type="text" class="form-control" id="scuderia" name="scuderia" value="{{ old('scuderia') }}">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Number</label>
-        <input type="text" class="form-control" id="number" name="number" value="{{$driver->number}}">
+        <input type="text" class="form-control" id="number" name="number" value="{{$driverNumber}}">
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Value</label>
-        <input type="text" class="form-control" id="value" name="value" value="{{$driver->value}}">
+        <input type="text" class="form-control" id="value" name="value" value="{{ old('value') }}">
     </div>
     <div>
         <a href="/drivers" class="btn btn-outline-secondary">Cancel</a>

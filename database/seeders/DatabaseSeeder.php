@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TeamSeeder::class);
         $this->call(DriversInTeamsSeeder::class);
         $this->call(FinishesSeeder::class);
+        $this->call(ImageSeeder::class);
     }
 }

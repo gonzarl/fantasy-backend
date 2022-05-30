@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FinishesController;
 use App\Http\Controllers\DriversInTeamsController;
+use App\Http\Controllers\DriverController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,12 @@ Route::resource('drivers_in_teams', 'App\Http\Controllers\DriversInTeamsControll
 Route::match(['get', 'post'], '/finishes/{id}/create_result', [FinishesController::class,'createResult'])->middleware(['auth']);
 Route::get('/finishes/{id}/show_result', [FinishesController::class,'showResult'])->middleware(['auth']);
 Route::match(['get', 'post'], '/drivers_in_teams/{id}/create_lineup', [DriversInTeamsController::class,'createLinup'])->middleware(['auth']);
+
+Route::resource('image', 'App\Http\Controllers\ImageController')->middleware(['auth']);
+
+Route::get('/drivers_create/search', [DriverController::class,'search'])->middleware(['auth']);
+Route::post('/drivers_create/search', [DriverController::class,'searchInService'])->middleware(['auth']);
+
 
 Route::get('/dashboard', function () {
     return view('home');

@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Driver;
+use App\Models\Image;
+use Illuminate\Support\Facades\Http;
 
 class DriverController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -43,7 +49,6 @@ class DriverController extends Controller
             'scuderia' => 'required',
             'number' => 'required|numeric',
             'value' => 'required|integer',
-            'image' => 'required|max:255',
         ]);
 
         $newDriver = new Driver();
@@ -53,7 +58,6 @@ class DriverController extends Controller
         $newDriver->scuderia = $request->get('scuderia');
         $newDriver->number = $request->get('number');
         $newDriver->value = $request->get('value');
-        $newDriver->image = $request->get('image');
         $newDriver->save();
         return redirect('/drivers');
     }
@@ -67,7 +71,8 @@ class DriverController extends Controller
     public function show($id)
     {
         $driver = Driver::find($id);
-        return view('drivers.show')->with('driver', $driver);
+        $image = Image::where('driver_id',$driver->id)->first();
+        return view('drivers.show')->with('driver', $driver)->with('image',$image);
     }
 
     /**
@@ -99,7 +104,6 @@ class DriverController extends Controller
             'scuderia' => 'required',
             'number' => 'required|numeric',
             'value' => 'required|integer',
-            'image' => 'required|max:255',
         ]);
 
         $driver = Driver::find($id);
@@ -110,7 +114,6 @@ class DriverController extends Controller
         $driver->scuderia = $request->get('scuderia');
         $driver->number = $request->get('number');
         $driver->value = $request->get('value');
-        $driver->image = $request->get('image');
         $driver->save();
         return redirect('/drivers');
     }
@@ -126,5 +129,36 @@ class DriverController extends Controller
         $driver = Driver::find($id);
         $driver->delete();
         return redirect('/drivers');
+    }
+
+    public function search(){
+        return view('drivers.search');
+    }
+
+    public function searchInService(Request $request){
+        $response = Http::get('https://ergast.com/api/f1/drivers/'.$request->name.'.json');
+        
+        //si encontre resultados los uso, sino voy a crear vacio
+        if ($response["MRData"]["total"] != "0") {
+            $table = $response->json()["MRData"]["DriverTable"];
+            $driver = $table["Drivers"][0];
+            $driver_name = $driver["givenName"].' '.$driver["familyName"];
+            $driver_number = $driver["permanentNumber"];
+            $driver_dob = $driver["dateOfBirth"];
+
+            $driver_dob = explode("-", $driver_dob);
+
+            //get age from date or birthdate
+            $age = (date("md", date("U", mktime(0, 0, 0, $driver_dob[2], $driver_dob[1], $driver_dob[0]))) > date("md")
+              ? ((date("Y") - $driver_dob[0]) - 1)
+              : (date("Y") - $driver_dob[0]));
+
+            $driver_nationality = $driver["nationality"];
+            return view('drivers.createFromService')->with('driverName',$driver_name)
+                ->with('driverNumber',$driver_number)->with('driverAge',$age-1)
+                ->with('driverNationality',$driver_nationality);
+        } else {
+            return redirect('/drivers/create');
+        }
     }
 }

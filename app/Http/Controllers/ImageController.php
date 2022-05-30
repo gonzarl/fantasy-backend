@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Image;
+use Illuminate\Support\Facades\File;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
-class UserController extends Controller
+class ImageController extends Controller
 {
     public function __construct()
     {
@@ -18,8 +20,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id', 'asc')->paginate(10);
-        return view('users.index')->with('users', $users);
+        //
     }
 
     /**
@@ -29,7 +30,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        //
     }
 
     /**
@@ -40,20 +41,20 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|alpha_num',
-            'email' => 'required|email',
-            'password' => 'required',
-            'rol' => 'required',
-        ]);
+        $driver = $request->get('driver_id');
 
-        $newUser = new User();
-        $newUser->name = $request->get('name');
-        $newUser->email = $request->get('email');
-        $newUser->password = bcrypt($request->get('password'));
-        $newUser->rol = $request->get('rol');
-        $newUser->save();
-        return redirect('/users');
+        if ($request->has('image')){
+            $image = $request->file('image');
+            $stored = $image->storeOnCloudinary('Drivers');
+
+            $local_copy = new Image();
+            $local_copy->path = $stored->getSecurePath();
+            $local_copy->service_id = $stored->getPublicId();
+            $local_copy->driver_id = $driver;
+            $local_copy->timestamps = false;
+            $local_copy->save();
+        }
+        return redirect("/drivers/".$driver);
     }
 
     /**
@@ -75,8 +76,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('users.edit')->with('user',$user);
+        //
     }
 
     /**
@@ -88,17 +88,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required|alpha_num',
-            'email' => 'required|email',
-            'rol' => 'required',
-        ]);
-        $user = User::find($id);
-        $user->name = $request->get('name');
-        $user->email = $request->get('email');
-        $user->rol = $request->get('rol');
-        $user->save();
-        return redirect('/users');
+        //
     }
 
     /**
@@ -109,8 +99,12 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id);
-        $user->delete();
-        return redirect('/users');
+        $image = Image::find($id);
+        $driver = $image->driver_id;
+
+        Cloudinary::destroy($image->service_id);
+
+        $image->delete();
+        return redirect("/drivers/".$driver);
     }
 }
