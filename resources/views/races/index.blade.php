@@ -11,9 +11,7 @@
     <thead>
         <tr>
             <th scope="col">City</th>
-            <th scope="col">Country</th>
             <th scope="col">Date</th>
-            <th scope="col">Style</th>
             <th scope="col">Result</th>
             @if (Auth::user()->rol == 'admin')
                 <th scope="col">Actions</th>
@@ -24,9 +22,7 @@
         @foreach ($races as $race)
             <tr>
                 <td>{{$race->city}}</td>
-                <td>{{$race->country}}</td>
                 <td>{{$race->date}}</td>
-                <td>{{$race->style}}</td>
                 <td>
                     @if ($race->finishes->isEmpty())
                         <a class="btn btn-outline-success" href="/finishes/{{$race->id}}/create_result">Create result</a>
@@ -36,6 +32,7 @@
                 </td>
                 @if (Auth::user()->rol == 'admin')
                     <td>
+                        <a class="btn btn-outline-success" href="/races/{{$race->id}}">More info</a> 
                         <a class="btn btn-outline-info" href="/races/{{$race->id}}/edit">Edit</a>
                         <!-- button trigger modal -->
                         <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="{{$race->id}}">Delete</button>

@@ -31,7 +31,9 @@ Route::match(['get', 'post'], '/finishes/{id}/create_result', [FinishesControlle
 Route::get('/finishes/{id}/show_result', [FinishesController::class,'showResult'])->middleware(['auth']);
 Route::match(['get', 'post'], '/drivers_in_teams/{id}/create_lineup', [DriversInTeamsController::class,'createLinup'])->middleware(['auth']);
 
-Route::resource('image', 'App\Http\Controllers\ImageController')->middleware(['auth']);
+#Route::resource('image', 'App\Http\Controllers\ImageController')->middleware(['auth']);
+Route::resource('driver_image', 'App\Http\Controllers\DriverImageController')->middleware(['auth']);
+Route::resource('race_image', 'App\Http\Controllers\RaceImageController')->middleware(['auth']);
 
 Route::get('/drivers_create/search', [DriverController::class,'search'])->middleware(['auth']);
 Route::post('/drivers_create/search', [DriverController::class,'searchInService'])->middleware(['auth']);

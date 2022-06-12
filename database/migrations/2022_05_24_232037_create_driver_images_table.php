@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\Finishes;
 
 return new class extends Migration
 {
@@ -14,15 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('races', function (Blueprint $table) {
+        Schema::create('driver_images', function (Blueprint $table) {
             $table->id();
-            $table->string('city');
-            $table->string('country');
-            $table->string('country_code');
-            $table->date('date')->nullable();
-            $table->string('style');
-            $table->string('laps');
-            $table->timestamps();
+            $table->string('path',500);
+            $table->string('service_id',500)->nullable();
+            $table->unsignedBigInteger('driver_id');
+
+            $table->foreign('driver_id')->references('id')->on('drivers')->onDelete('cascade');
         });
     }
 
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('races');
+        Schema::dropIfExists('driver_images');
     }
 };
