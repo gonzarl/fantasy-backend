@@ -10,6 +10,6 @@ class Race extends Model
     use HasFactory;
 
     public function finishes(){
-        return $this->belongsToMany(Driver::class, 'finishes', 'id', 'id');
+        return $this->belongsToMany(Driver::class, 'finishes', 'race_id', 'id');
     }
 }
