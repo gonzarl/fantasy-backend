@@ -71,10 +71,37 @@ class FinishesController extends Controller
         $newFinishes->driver_10_id = $request->get('driver_10_id');
 
         $amount = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1];
-        for ($i = 1; $i <= 10; $i++) {
-            $this->addTeamPoints($newFinishes->driver_.$i, $amount[$i-1]);
-            $this->addDriverPoints($newFinishes->driver_.$i, $amount[$i-1]);
-        }
+
+        $this->addTeamPoints($newFinishes->driver_1_id, $amount[0]);
+        $this->addDriverPoints($newFinishes->driver_1_id, $amount[0]);
+        
+        $this->addTeamPoints($newFinishes->driver_2_id, $amount[1]);
+        $this->addDriverPoints($newFinishes->driver_2_id, $amount[1]);
+        
+        $this->addTeamPoints($newFinishes->driver_3_id, $amount[2]);
+        $this->addDriverPoints($newFinishes->driver_3_id, $amount[2]);
+        
+        $this->addTeamPoints($newFinishes->driver_4_id, $amount[3]);
+        $this->addDriverPoints($newFinishes->driver_4_id, $amount[3]);
+        
+        $this->addTeamPoints($newFinishes->driver_5_id, $amount[4]);
+        $this->addDriverPoints($newFinishes->driver_5_id, $amount[4]);
+        
+        $this->addTeamPoints($newFinishes->driver_6_id, $amount[5]);
+        $this->addDriverPoints($newFinishes->driver_6_id, $amount[5]);
+        
+        $this->addTeamPoints($newFinishes->driver_7_id, $amount[6]);
+        $this->addDriverPoints($newFinishes->driver_7_id, $amount[6]);
+        
+        $this->addTeamPoints($newFinishes->driver_8_id, $amount[7]);
+        $this->addDriverPoints($newFinishes->driver_8_id, $amount[7]);
+        
+        $this->addTeamPoints($newFinishes->driver_9_id, $amount[8]);
+        $this->addDriverPoints($newFinishes->driver_9_id, $amount[8]);
+        
+        $this->addTeamPoints($newFinishes->driver_10_id, $amount[9]);
+        $this->addDriverPoints($newFinishes->driver_10_id, $amount[9]);
+
         $newFinishes->save();
         return redirect('/races');
     }
@@ -168,10 +195,37 @@ class FinishesController extends Controller
     {
         $finish = Finishes::find($id);
         $amount = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1];
-        for ($i = 1; $i <= 10; $i++) {
-            $this->removeTeamPoints($finish->driver_.$i, $amount[$i-1]);
-            $this->removeDriverPoints($finish->driver_.$i, $amount[$i-1]);
-        }
+
+        $this->removeTeamPoints($finish->driver_1_id, $amount[0]);
+        $this->removeDriverPoints($finish->driver_1_id, $amount[0]);
+
+        $this->removeTeamPoints($finish->driver_2_id, $amount[1]);
+        $this->removeDriverPoints($finish->driver_2_id, $amount[1]);
+
+        $this->removeTeamPoints($finish->driver_3_id, $amount[2]);
+        $this->removeDriverPoints($finish->driver_3_id, $amount[2]);
+
+        $this->removeTeamPoints($finish->driver_4_id, $amount[3]);
+        $this->removeDriverPoints($finish->driver_4_id, $amount[3]);
+
+        $this->removeTeamPoints($finish->driver_5_id, $amount[4]);
+        $this->removeDriverPoints($finish->driver_5_id, $amount[4]);
+
+        $this->removeTeamPoints($finish->driver_6_id, $amount[5]);
+        $this->removeDriverPoints($finish->driver_6_id, $amount[5]);
+
+        $this->removeTeamPoints($finish->driver_7_id, $amount[6]);
+        $this->removeDriverPoints($finish->driver_7_id, $amount[6]);
+
+        $this->removeTeamPoints($finish->driver_8_id, $amount[7]);
+        $this->removeDriverPoints($finish->driver_8_id, $amount[7]);
+
+        $this->removeTeamPoints($finish->driver_9_id, $amount[8]);
+        $this->removeDriverPoints($finish->driver_9_id, $amount[8]);
+
+        $this->removeTeamPoints($finish->driver_10_id, $amount[9]);
+        $this->removeDriverPoints($finish->driver_10_id, $amount[9]);
+
         $finish->delete();
         return redirect('/races');
     }
