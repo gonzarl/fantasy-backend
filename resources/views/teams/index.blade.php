@@ -19,7 +19,11 @@
         @foreach ($teams as $team)
             <tr>
                 <td>{{$team->name}}</td>
-                <td>{{$users[$team->user_id]->name}}</td>
+                @foreach($users as $user)
+                    @if($user->id == $team->user_id)
+                        <td>{{$user->name}}</td>
+                    @endif
+                @endforeach
                 <td><a class="btn btn-outline-success" href="/teams/{{$team->id}}">View</a></td>
                 <td>
                     <a class="btn btn-outline-info" href="/teams/{{$team->id}}/edit">Edit</a>

@@ -23,6 +23,10 @@
         <input type="text" class="form-control" id="country" name="country" value="{{ old('country') }}">
     </div>
     <div class="mb-3">
+        <label for="" class="form-label">Country code</label>
+        <input type="text" class="form-control" id="country_code" name="country_code" value="{{ old('country_code') }}">
+    </div>
+    <div class="mb-3">
         <label for="" class="form-label">Date</label>
         <input type="date" class="form-control" id="date" name="date" value="{{ old('date') }}" min="2022-01-01" max="2022-12-31">
     </div>
@@ -32,6 +36,8 @@
             <option selected value="classic">Classic</option>
             <option value="street">Street</option>
         </select>
+        <label for="" class="form-label">Laps</label>
+        <input type="text" class="form-control" id="laps" name="laps" value="{{old('laps')}}">
     </div>
     <div>
         <a href="/races" class="btn btn-outline-secondary">Cancel</a>

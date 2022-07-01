@@ -1,36 +1,34 @@
 @extends('layouts.plantillabase')
 
 @section('contenido')
-<h2>Driver profile</h2>
-<div action="/drivers/{{$driver->id}}" class="card mx-auto" style="width: 25rem;">
+<div action="/races/{{$race->id}}" class="card mx-auto" style="width: 25rem;">
     @if ($image!=null)
-        <img src="{{$image->path}}" class="card-img-top mx-auto" id="driver-pic" alt="{{$driver->name}} profile">
+        <img src="{{$image->path}}" class="card-img-top mx-auto" id="race-circuit" alt="{{$race->city}} circuit">
     @endif
     <div class="card-body">
-        <h5 class="card-title text-center">{{$driver->name}}</h5>
+        <h5 class="card-title text-center">{{$race->city}}</h5>
         <h6 class="card-subtitle">Full description</h6>
         <ul>
-            <li>Age: {{$driver->age}}</li>
-            <li>Nationality: {{$driver->nationality}}</li>
-            <li>Points: {{$driver->points}}</li>
-            <li>Scuderia: {{$driver->scuderia}}</li>
-            <li>Number: {{$driver->number}}</li>
-            <li>Value: {{$driver->value}}</li>
+            <li>Country: {{$race->country}}</li>
+            <li>Country code: {{$race->country_code}}</li>
+            <li>Date: {{$race->date}}</li>
+            <li>Style: {{$race->style}}</li>
+            <li>Laps: {{$race->laps}}</li>
         </ul>
         <div class="container text-center">
-            <a class="btn btn-outline-info" href="/drivers/{{$driver->id}}/edit">Edit</a>
-            <a class="btn btn-outline-secondary" href="/drivers">Go back</a>
+            <a class="btn btn-outline-info" href="/races/{{$race->id}}/edit">Edit</a>
+            <a class="btn btn-outline-secondary" href="/races">Go back</a>
             @if ($image!=null)
                 <!-- Button trigger modal -->
                 <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="{{$image->id}}">Delete image</button>
             @else
                 <div class="mt-4">
-                    <form method="POST" action="/driver_image" enctype="multipart/form-data">
+                    <form method="POST" action="/race_image" enctype="multipart/form-data">
                         @csrf
                         <div class="container mx-auto my-3">
-                            <label for="file" class="my-2 d-flex">Upload driver picture</label>
+                            <label for="file" class="my-2 d-flex">Upload race picture</label>
                             <input type="file" id="inputImage" name="image" class="form-control" accept="image/*" onchange="activateButton()">
-                            <input type="hidden" name="driver_id" class="form-control" value="{{ $driver->id }}">
+                            <input type="hidden" name="race_id" class="form-control" value="{{ $race->id }}">
                         </div>
                         <div class="col-sm-2 mt-2">
                             <button type="submit" id="uploadButton" class="btn btn-outline-success" disabled>Upload</button>
@@ -51,12 +49,12 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          You are about to delete the driver profile picture, do you want to continue deleting?
+          You are about to delete the race circuit picture, do you want to continue deleting?
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
             @if ($image!=null)
-                <form id="deleteForm" data-bs-action="/driver_image/" action="" method="POST">
+                <form id="deleteForm" data-bs-action="/race_image/" action="" method="POST">
                 @csrf
                 @method('DELETE') 
                     <button class="btn btn-outline-primary">Yes, delete</button>

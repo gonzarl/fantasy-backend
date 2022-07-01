@@ -5,11 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Race extends Model
+class DriverImage extends Model
 {
     use HasFactory;
-
-    public function finishes(){
-        return $this->belongsToMany(Driver::class, 'finishes', 'race_id', 'id');
-    }
 }

@@ -18,7 +18,7 @@ class DriverSeeder extends Seeder
         DB::table('drivers')->insert([
             'name'=>'Charles Leclerc',
             'age'=>'24',
-            'nationality' => 'Monegasque',
+            'nationality' => 'Monegasco',
             'points'=>'71',
             'scuderia'=>'Ferrari',
             'number'=>'16',
@@ -28,7 +28,7 @@ class DriverSeeder extends Seeder
         DB::table('drivers')->insert([
             'name'=>'Carlos Sainz',
             'age'=>'27',
-            'nationality' => 'Spanish',
+            'nationality' => 'Español',
             'points'=>'33',
             'scuderia'=>'Ferrari',
             'number'=>'55',
@@ -38,7 +38,7 @@ class DriverSeeder extends Seeder
         DB::table('drivers')->insert([
             'name'=>'Max Verstappen',
             'age'=>'24',
-            'nationality' => 'Dutch',
+            'nationality' => 'Nerlandes',
             'points'=>'25',
             'scuderia'=>'Red Bull',
             'number'=>'1',
@@ -48,7 +48,7 @@ class DriverSeeder extends Seeder
         DB::table('drivers')->insert([
             'name'=>'Sergio Perez',
             'age'=>'31',
-            'nationality' => 'Mexican',
+            'nationality' => 'Mexicano',
             'points'=>'30',
             'scuderia'=>'Red Bull',
             'number'=>'11',
@@ -58,7 +58,7 @@ class DriverSeeder extends Seeder
         DB::table('drivers')->insert([
             'name'=>'George Rusell',
             'age'=>'23',
-            'nationality' => 'English',
+            'nationality' => 'Ingles',
             'points'=>'37',
             'scuderia'=>'Mercedes',
             'number'=>'63',
@@ -68,7 +68,7 @@ class DriverSeeder extends Seeder
         DB::table('drivers')->insert([
             'name'=>'Lewis Hamilton',
             'age'=>'37',
-            'nationality' => 'English',
+            'nationality' => 'Ingles',
             'points'=>'28',
             'scuderia'=>'Mercedes',
             'number'=>'44',
@@ -78,7 +78,7 @@ class DriverSeeder extends Seeder
         DB::table('drivers')->insert([
             'name'=>'Esteban Ocon',
             'age'=>'25',
-            'nationality' => 'French',
+            'nationality' => 'Frances',
             'points'=>'20',
             'scuderia'=>'Alpine',
             'number'=>'31',
@@ -88,7 +88,7 @@ class DriverSeeder extends Seeder
         DB::table('drivers')->insert([
             'name'=>'Fernando Alonso',
             'age'=>'40',
-            'nationality' => 'Spanish',
+            'nationality' => 'Español',
             'points'=>'2',
             'scuderia'=>'Alpine',
             'number'=>'14',
@@ -98,7 +98,7 @@ class DriverSeeder extends Seeder
         DB::table('drivers')->insert([
             'name'=>'Kevin Magnussen',
             'age'=>'29',
-            'nationality' => 'Danish',
+            'nationality' => 'Danes',
             'points'=>'12',
             'scuderia'=>'Haas',
             'number'=>'20',
@@ -108,7 +108,7 @@ class DriverSeeder extends Seeder
         DB::table('drivers')->insert([
             'name'=>'Mick Schumacher',
             'age'=>'22',
-            'nationality' => 'German',
+            'nationality' => 'Aleman',
             'points'=>'0',
             'scuderia'=>'Haas',
             'number'=>'47',
@@ -118,7 +118,7 @@ class DriverSeeder extends Seeder
         DB::table('drivers')->insert([
             'name'=>'Valtteri Bottas',
             'age'=>'32',
-            'nationality' => 'Finnish',
+            'nationality' => 'Finlandes',
             'points'=>'12',
             'scuderia'=>'Alfa Romeo',
             'number'=>'77',
@@ -128,7 +128,7 @@ class DriverSeeder extends Seeder
         DB::table('drivers')->insert([
             'name'=>'Guanyu Zhou',
             'age'=>'22',
-            'nationality' => 'Chinese',
+            'nationality' => 'Chino',
             'points'=>'1',
             'scuderia'=>'Alfa Romeo',
             'number'=>'24',
@@ -138,7 +138,7 @@ class DriverSeeder extends Seeder
         DB::table('drivers')->insert([
             'name'=>'Lando Norris',
             'age'=>'22',
-            'nationality' => 'English',
+            'nationality' => 'Ingles',
             'points'=>'16',
             'scuderia'=>'McLaren',
             'number'=>'4',
@@ -148,7 +148,7 @@ class DriverSeeder extends Seeder
         DB::table('drivers')->insert([
             'name'=>'Daniel Ricciardo',
             'age'=>'32',
-            'nationality' => 'Australian',
+            'nationality' => 'Australiano',
             'points'=>'8',
             'scuderia'=>'McLaren',
             'number'=>'3',
@@ -158,7 +158,7 @@ class DriverSeeder extends Seeder
         DB::table('drivers')->insert([
             'name'=>'Pierre Gasly',
             'age'=>'25',
-            'nationality' => 'French',
+            'nationality' => 'Frances',
             'points'=>'6',
             'scuderia'=>'AlphaTauri',
             'number'=>'10',
@@ -168,7 +168,7 @@ class DriverSeeder extends Seeder
         DB::table('drivers')->insert([
             'name'=>'Yuki Tsunoda',
             'age'=>'21',
-            'nationality' => 'Japanese',
+            'nationality' => 'Japones',
             'points'=>'4',
             'scuderia'=>'AlphaTauri',
             'number'=>'22',
@@ -178,7 +178,7 @@ class DriverSeeder extends Seeder
         DB::table('drivers')->insert([
             'name'=>'Lance Stroll',
             'age'=>'23',
-            'nationality' => 'Canadian',
+            'nationality' => 'Canadiense',
             'points'=>'0',
             'scuderia'=>'Aston Martin',
             'number'=>'18',
@@ -188,7 +188,7 @@ class DriverSeeder extends Seeder
         DB::table('drivers')->insert([
             'name'=>'Sebastian Vettel',
             'age'=>'34',
-            'nationality' => 'German',
+            'nationality' => 'Aleman',
             'points'=>'0',
             'scuderia'=>'Aston Martin',
             'number'=>'5',
@@ -198,7 +198,7 @@ class DriverSeeder extends Seeder
         DB::table('drivers')->insert([
             'name'=>'Alexander Albon',
             'age'=>'25',
-            'nationality' => 'Thai',
+            'nationality' => 'Tailandes',
             'points'=>'1',
             'scuderia'=>'Williams',
             'number'=>'23',
@@ -208,7 +208,7 @@ class DriverSeeder extends Seeder
         DB::table('drivers')->insert([
             'name'=>'Nicholas Latifi',
             'age'=>'26',
-            'nationality' => 'Canadian',
+            'nationality' => 'Canadiense',
             'points'=>'0',
             'scuderia'=>'Williams',
             'number'=>'6',
