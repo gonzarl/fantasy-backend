@@ -1,0 +1,1 @@
+<img {{$attributes}} id="fantasy-logo" src="https://i.ibb.co/ZHnjh79/opcion1.png" alt="fantasy-logo">
