@@ -10,6 +10,6 @@ class Team extends Model
     use HasFactory;
 
     public function drivers(){
-        return $this->belongsToMany(Driver::class, 'drivers_in_teams', 'team_id', 'id');
+        return $this->belongsToMany(Driver::class, 'drivers_in_teams', 'team_id', 'driver_1_id');
     }
 }
